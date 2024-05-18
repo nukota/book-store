@@ -72,13 +72,13 @@
 
         <Label Grid.Row="1"
                x:Name="login" 
-               Content="ĐĂNG NHẬP" 
+               Content="   NHÀ SÁCH THÙY TRÂM" 
                FontSize="20"
                FontWeight="Bold"
                HorizontalAlignment="Center" 
-               Margin="345,145,305,0" 
+               Margin="0,145,0,0" 
                VerticalAlignment="Top" 
-               Foreground="#000000" RenderTransformOrigin="0.535,2.75" Width="150"/>
+               Foreground="#000000" RenderTransformOrigin="0.535,2.75" Width="260"/>
 
         <TextBlock  Grid.Row="1"
                      HorizontalAlignment="Left" 

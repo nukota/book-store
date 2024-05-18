@@ -94,31 +94,31 @@
             </Border>
         </Grid>
 
-        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="20" Margin="249,10,609,0" Height="34" Background="Black" VerticalAlignment="Top">
+        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="2" Margin="249,10,609,0" Height="34" Background="Black" VerticalAlignment="Top">
             <Button 
                 Content="Thêm Khách Hàng"
                 FontSize="12"
-                Background="{x:Null}"
+                Background="#2196F3"
                 Foreground="#ffff"
                 BorderBrush="{x:Null}"
                 Click="btnAdd"/>
         </Border>
 
-        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="20" Margin="429,10,429,0" Height="34" Background="Black" VerticalAlignment="Top">
+        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="2" Margin="429,10,429,0" Height="34" Background="Black" VerticalAlignment="Top">
             <Button 
                 Content="Lưu Khách Hàng"
                 FontSize="12"
-                Background="{x:Null}"
+                Background="#4CAF50"
                 Foreground="#ffff"
                 BorderBrush="{x:Null}"
                 Click="btnSave"/>
         </Border>
 
-        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="20" Margin="611,10,230,0" Height="34" Background="Black" VerticalAlignment="Top">
+        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="2" Margin="611,10,230,0" Height="34" Background="Black" VerticalAlignment="Top">
             <Button 
                 Content="Cập Nhật Khách Hàng"
                 FontSize="12"
-                Background="{x:Null}"
+                Background="#FF9800"
                 Foreground="#ffff"
                 BorderBrush="{x:Null}"
                 Click="btnUpdate"/>

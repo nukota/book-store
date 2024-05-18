@@ -6,18 +6,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BookStore.View"
              mc:Ignorable="d" 
-             Background="White"
+             Background="{DynamicResource MaterialDesignPaper}"
              d:DesignHeight="555" d:DesignWidth="1004">
-    <Grid>
+    <Grid Margin="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Tìm kiếm khách hàng</TextBlock>
-        <TextBlock />
-        <Border Grid.Row="1" Background="White" BorderBrush="Black" BorderThickness="2" CornerRadius="20" Margin="225,6,225,4">
+        <!-- Title -->
+        <TextBlock Text="Tìm kiếm khách hàng" FontSize="24" FontWeight="Bold" Foreground="{DynamicResource PrimaryHueDarkBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,20"/>
+
+        <!-- Search Bar -->
+        <Border Grid.Row="1" Background="White" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="2" CornerRadius="20" Padding="10" Margin="0,0,0,20">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -25,27 +27,28 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Style="{DynamicResource MaterialDesignToolButton}" Click="btnSearch">
-                    <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                <Button Style="{StaticResource MaterialDesignToolButton}" Click="btnSearch">
+                    <materialDesign:PackIcon Kind="Magnify" Foreground="{DynamicResource PrimaryHueDarkBrush}" />
                 </Button>
-                <TextBox x:Name="tbSearch" Grid.Column="1" 
-                         Margin="8 0 0 0" materialDesign:HintAssist.Hint="Tìm kiếm khách hàng" 
+                <TextBox x:Name="tbSearch" Grid.Column="1" Margin="8 0" materialDesign:HintAssist.Hint="Tìm kiếm khách hàng" 
                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0"
-                         MinWidth="300" VerticalAlignment="Center" />
-                <Button Grid.Column="2" Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="8 0 0 0" Panel.ZIndex="0" Click="btnSearch">
-                    <materialDesign:PackIcon Kind="Send" />
+                         MinWidth="300" VerticalAlignment="Center" Foreground="{DynamicResource PrimaryHueDarkBrush}" />
+                <Button Grid.Column="2" Style="{StaticResource MaterialDesignToolForegroundButton}" Margin="8 0 0 0" Click="btnSearch">
+                    <materialDesign:PackIcon Kind="Send" Foreground="{DynamicResource PrimaryHueDarkBrush}" />
                 </Button>
             </Grid>
         </Border>
 
-        <DataGrid x:Name="dataSearch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="2" Margin="0,20,0,0">
+        <!-- Data Grid -->
+        <DataGrid x:Name="dataSearch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="2" Margin="0,20,0,0"
+                  Style="{StaticResource MaterialDesignDataGrid}" AlternatingRowBackground="{DynamicResource MaterialDesignPaper}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding MaKhachHang, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mã khách hàng"/>
-                <DataGridTextColumn Binding="{Binding TenKhachHang, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tên khách hàng"/>
-                <DataGridTextColumn Binding="{Binding Email, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Email"/>
-                <DataGridTextColumn Binding="{Binding SDT, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Số điện thoại"/>
-                <DataGridTextColumn Binding="{Binding DiaChi, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Địa chỉ"/>
-                <DataGridTextColumn Binding="{Binding SoTienNo, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Số tiền nợ"/>
+                <DataGridTextColumn Binding="{Binding MaKhachHang}" Header="Mã khách hàng" Width="*" />
+                <DataGridTextColumn Binding="{Binding TenKhachHang}" Header="Tên khách hàng" Width="*" />
+                <DataGridTextColumn Binding="{Binding Email}" Header="Email" Width="*" />
+                <DataGridTextColumn Binding="{Binding SDT}" Header="Số điện thoại" Width="*" />
+                <DataGridTextColumn Binding="{Binding DiaChi}" Header="Địa chỉ" Width="*" />
+                <DataGridTextColumn Binding="{Binding SoTienNo}" Header="Số tiền nợ" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

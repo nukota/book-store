@@ -57,8 +57,6 @@
             </DataGrid>
         </Grid>
 
-
-
         <Grid Grid.Row="1" Grid.Column="2" Margin="0,20,0,5">
             <Border BorderThickness="2" BorderBrush="Black"  CornerRadius="15" Height="32" Margin="0,16,10,139">
                 <TextBox x:Name="tbSoLuong" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="20,-2,19,-1"
@@ -76,7 +74,6 @@
                         Background="{x:Null}"
                         BorderBrush="{x:Null}" Height="Auto" />
             </Border>
-
         </Grid>
 
         <DataGrid Grid.Row="2" Grid.Column="1" x:Name="dataPhieuNhap" ItemsSource="{Binding}" AutoGenerateColumns="False" IsEnabled="False"
@@ -102,29 +99,31 @@
         </DataGrid>
 
         <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-            <Border  BorderBrush="Black" Background="Black" BorderThickness="2" CornerRadius="20" Margin="95,241,443,10">
+            <Border BorderBrush="Black" Background="{x:Null}" BorderThickness="2" CornerRadius="0" Margin="95,241,443,10">
                 <Button Click="btnAdd"
                         Content="Tạo phiếu nhập mới"
-                        Background="{x:Null}"
+                        Background="#2196F3"
                         Foreground="White"
-                        BorderBrush="{x:Null}"/>
+                        BorderBrush="{x:Null}"
+                        Margin="10,-2,-2,-4"/>
             </Border>
 
-            <Border BorderBrush="Black" Background="Black" BorderThickness="2" CornerRadius="20" Margin="299,242,278,10">
+            <Border BorderBrush="Black" Background="{x:Null}"  BorderThickness="2" CornerRadius="0" Margin="299,242,278,10">
                 <Button Click="btnUpdate"
                         Content="Nhập sách"
-                        Background="{x:Null}"
+                        Background="#4CAF50"
                         Foreground="White"
-                        BorderBrush="{x:Null}"/>
+                        BorderBrush="{x:Null}"
+                        Margin="10,-2,-2,-5"/>
             </Border>
-            <Border BorderBrush="Black" Background="Black" BorderThickness="2" CornerRadius="20" Margin="452,241,83,10">
+            <Border BorderBrush="Black" Background="{x:Null}" BorderThickness="2" CornerRadius="0" Margin="452,241,83,10">
                 <Button Click="btnSave"
                         Content="Lưu phiếu nhập"
-                        Background="{x:Null}"
+                        Background="#FF9800"
                         Foreground="White"
-                        BorderBrush="{x:Null}"/>
+                        BorderBrush="{x:Null}"
+                        Margin="10,-2,8,-4"/>
             </Border>
         </Grid>
-
     </Grid>
 </UserControl>

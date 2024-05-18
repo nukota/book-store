@@ -6,80 +6,85 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BookStore.View"
              mc:Ignorable="d" 
-             Background="White"
+             Background="#F0F0F0"
              d:DesignHeight="555" d:DesignWidth="1004">
-    <Grid>
+    <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
-            <RowDefinition />
+            <RowDefinition/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold">Thay đổi quy định</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#333333">Thay đổi quy định</TextBlock>
 
-        <Grid Grid.Row="1" Margin="75,0,0,0" >
+        <Grid Grid.Row="1" Margin="50,20,56,2">
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" FontSize="14" FontWeight="Bold" Margin="111,25,759,0">Quy định 1</TextBlock>
+            <TextBlock Grid.Row="0" FontSize="16" FontWeight="Bold" Margin="0,10" Foreground="#555555">Quy định 1</TextBlock>
 
-            <TextBlock Grid.Row="1" FontSize="13" Margin="111,10,684,37" Grid.RowSpan="2" >Số lượng nhập ít nhất</TextBlock>
-            <Border Grid.Row="1" BorderBrush="Black" BorderThickness="2" CornerRadius="20" Margin="250,0,489,10">
-                <TextBox x:Name="tbQD1"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Width="147" HorizontalAlignment="Left" Margin="19,-2,0,-2" Height="37"/>
-            </Border>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,5">
+                <TextBlock FontSize="14" Margin="0,0,20,0" Width="200" Foreground="#777777">Số lượng nhập ít nhất</TextBlock>
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5">
+                    <TextBox x:Name="tbQD1" Width="200" Height="30" Margin="10,0" HorizontalContentAlignment="Center"/>
+                </Border>
+            </StackPanel>
 
-            <TextBlock Grid.Row="2" FontSize="13" Margin="111,10,624,37" Grid.RowSpan="2" >Lượng tồn tối đa trước khi nhập</TextBlock>
-            <Border Grid.Row="2" BorderBrush="Black" BorderThickness="2" CornerRadius="20" Margin="310,0,384,10">
-                <TextBox x:Name="tbQD3"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Width="196" HorizontalAlignment="Left" Margin="16,-2,0,-2" Height="37"/>
-            </Border>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,5">
+                <TextBlock FontSize="14" Margin="0,0,20,0" Width="200" Foreground="#777777">Lượng tồn tối đa trước khi nhập</TextBlock>
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5">
+                    <TextBox x:Name="tbQD3" Width="200" Height="30" Margin="10,0" HorizontalContentAlignment="Center"/>
+                </Border>
+            </StackPanel>
 
-            <TextBlock Grid.Row="3" FontSize="14" FontWeight="Bold" Margin="111,25,759,0">Quy định 2</TextBlock>
+            <TextBlock Grid.Row="3" FontSize="16" FontWeight="Bold" Margin="0,10" Foreground="#555555">Quy định 2</TextBlock>
 
-            <TextBlock Grid.Row="4" FontSize="13" Margin="111,10,684,37" Grid.RowSpan="2" >Tiền nợ tối đa</TextBlock>
-            <Border Grid.Row="4" BorderBrush="Black" BorderThickness="2" CornerRadius="20" Margin="250,0,489,10">
-                <TextBox x:Name="tbQD4"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Width="149" HorizontalAlignment="Left" Margin="19,-2,0,-2" Height="37"/>
-            </Border>
+            <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,5">
+                <TextBlock FontSize="14" Margin="0,0,20,0" Width="200" Foreground="#777777">Tiền nợ tối đa</TextBlock>
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5">
+                    <TextBox x:Name="tbQD4" Width="200" Height="30" Margin="10,0" HorizontalContentAlignment="Center"/>
+                </Border>
+            </StackPanel>
 
-            <TextBlock Grid.Row="5" FontSize="13" Margin="111,10,624,37" Grid.RowSpan="2" >Lượng tồn tối thiểu sau khi bán</TextBlock>
-            <Border Grid.Row="5" BorderBrush="Black" BorderThickness="2" CornerRadius="20" Margin="310,0,412,10">
-                <TextBox x:Name="tbQD2"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Width="165" HorizontalAlignment="Left" Margin="19,-2,0,-2" Height="37"/>
-            </Border>
+            <StackPanel Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,5">
+                <TextBlock FontSize="14" Margin="0,0,20,0" Width="200" Foreground="#777777">Lượng tồn tối thiểu sau khi bán</TextBlock>
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5">
+                    <TextBox x:Name="tbQD2" Width="200" Height="30" Margin="10,0" HorizontalContentAlignment="Center"/>
+                </Border>
+            </StackPanel>
 
-            <TextBlock Grid.Row="6" FontSize="14" FontWeight="Bold" Margin="111,25,759,0">Quy định 4</TextBlock>
-            <TextBlock Grid.Row="7" FontSize="13" Margin="152,10,341,10" >Sử dụng quy định số tiền thu không vượt quá số tiền khách hàng đang nợ</TextBlock>
-
-
+            <TextBlock Grid.Row="6" FontSize="16" FontWeight="Bold" Margin="0,10" Foreground="#555555">Quy định 4</TextBlock>
+            <TextBlock Grid.Row="7" FontSize="14" Margin="0,5" Foreground="#777777">Sử dụng quy định số tiền thu không vượt quá số tiền khách hàng đang nợ</TextBlock>
         </Grid>
 
-        <Grid Grid.Row="2">
-            <Border Margin="331,18,541,51" BorderBrush="Black" BorderThickness="2" CornerRadius="15" Background="Black">
-                <Button Content="Thay đổi" 
-                        Click="btnChange" 
-                        FontSize="12"
-                        Background="{x:Null}"
-                        BorderBrush="{x:Null}"
-                        Foreground="#ffff" Margin="-2" Height="Auto"/>
-            </Border>
+        <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border Margin="10" BorderBrush="#333333" BorderThickness="2" CornerRadius="15" Background="#333333">
+                    <Button Content="Thay đổi" 
+                            Click="btnChange" 
+                            FontSize="14"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White" Padding="20,10" Height="53"/>
+                </Border>
 
-            <Border Margin="525,17,333,53" BorderBrush="Black" BorderThickness="2" CornerRadius="15" Background="Black">
-                <Button Content="Mặc định"  
-                        Click="btnDefault"  
-                        FontSize="12"
-                        Background="{x:Null}"
-                        BorderBrush="{x:Null}"
-                        Foreground="#ffff" Margin="3,-1,-3,-2" Height="Auto"/>
-            </Border>
-
-
-
+                <Border Margin="10" BorderBrush="#333333" BorderThickness="2" CornerRadius="15" Background="#333333">
+                    <Button Content="Mặc định"  
+                            Click="btnDefault"  
+                            FontSize="14"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Foreground="White" Padding="20,10" Height="69" Width="101"/>
+                </Border>
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>
