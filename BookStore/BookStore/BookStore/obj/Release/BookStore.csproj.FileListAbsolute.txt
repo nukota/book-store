@@ -1,0 +1,173 @@
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\BookStore.exe.config
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\BookStore.exe
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\BookStore.pdb
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\EntityFramework.dll
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\EntityFramework.SqlServer.dll
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\MaterialDesignColors.dll
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\MaterialDesignThemes.Wpf.dll
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\EntityFramework.xml
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\EntityFramework.SqlServer.xml
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\MaterialDesignColors.pdb
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\MaterialDesignThemes.Wpf.pdb
+E:\Projects\Book Management Final\BookStore\BookStore\bin\Release\MaterialDesignThemes.Wpf.xml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Login.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\BookInfo.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Books.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Cash.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Customers.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\DebtReport.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Find.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\ImportBook.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Interface.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Login.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Menu.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\SearchCustomer.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Sell.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Setting.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Test.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\ExistReport.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\ViewSwitcher.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\App.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\BookStore_Content.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\GeneratedInternalTypeHelper.g.cs
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\BookStore_MarkupCompile.cache
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\BookStore_MarkupCompile.lref
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\App.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\BookInfo.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Books.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Cash.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Customers.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\DebtReport.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Find.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\ImportBook.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Interface.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Menu.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\SearchCustomer.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Sell.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Setting.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\Test.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\ExistReport.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\View\ViewSwitcher.baml
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\BookStore.g.resources
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\BookStore.Properties.Resources.resources
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\BookStore.csproj.GenerateResource.cache
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\BookStore.csproj.CoreCompileInputs.cache
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\BookStore.csproj.CopyComplete
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\BookStore.exe
+E:\Projects\Book Management Final\BookStore\BookStore\obj\Release\BookStore.pdb
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\BookStore.exe.config
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\BookStore.exe
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\BookStore.pdb
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\EntityFramework.dll
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\MaterialDesignColors.dll
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\MaterialDesignThemes.Wpf.dll
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\EntityFramework.xml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\MaterialDesignColors.pdb
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\MaterialDesignThemes.Wpf.pdb
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\bin\Release\MaterialDesignThemes.Wpf.xml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.csproj.AssemblyReference.cache
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Login.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\BookInfo.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Books.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Cash.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Customers.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\DebtReport.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Find.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\ImportBook.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Interface.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Login.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Menu.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\SearchCustomer.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Sell.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Setting.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Test.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\ExistReport.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\ViewSwitcher.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\App.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore_Content.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore_MarkupCompile.cache
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore_MarkupCompile.lref
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\App.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\BookInfo.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Books.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Cash.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Customers.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\DebtReport.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Find.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\ImportBook.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Interface.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Menu.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\SearchCustomer.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Sell.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Setting.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\Test.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\ExistReport.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\View\ViewSwitcher.baml
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.g.resources
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.Properties.Resources.resources
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.csproj.GenerateResource.cache
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.csproj.CoreCompileInputs.cache
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.csproj.CopyComplete
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.exe
+C:\Users\Kien vip\Downloads\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.pdb
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\BookStore.exe.config
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\BookStore.exe
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\BookStore.pdb
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\EntityFramework.dll
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\EntityFramework.SqlServer.dll
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\MaterialDesignColors.dll
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\MaterialDesignThemes.Wpf.dll
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\EntityFramework.xml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\EntityFramework.SqlServer.xml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\MaterialDesignColors.pdb
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\MaterialDesignThemes.Wpf.pdb
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\bin\Release\MaterialDesignThemes.Wpf.xml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.csproj.AssemblyReference.cache
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Login.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\BookInfo.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Books.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Cash.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Customers.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\DebtReport.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Find.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\ImportBook.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Interface.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Login.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Menu.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\SearchCustomer.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Sell.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Setting.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Test.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\ExistReport.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\ViewSwitcher.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\App.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore_Content.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore_MarkupCompile.cache
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore_MarkupCompile.lref
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\App.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\BookInfo.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Books.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Cash.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Customers.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\DebtReport.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Find.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\ImportBook.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Interface.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Menu.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\SearchCustomer.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Sell.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Setting.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\Test.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\ExistReport.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\View\ViewSwitcher.baml
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.g.resources
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.Properties.Resources.resources
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.csproj.GenerateResource.cache
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.csproj.CoreCompileInputs.cache
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.csproj.CopyComplete
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.exe
+D:\UIT\SE104 - Nhap mon CNPM\bookstore_management-master\BookStore\BookStore\obj\Release\BookStore.pdb
