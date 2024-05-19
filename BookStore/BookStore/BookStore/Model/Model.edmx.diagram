@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f79725f9d70449a99ba4adeed87c680e" Name="Diagram1">
+      <Diagram DiagramId="f79725f9d70449a99ba4adeed87c680e" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="Model.BAOCAOCONGNO" Width="1.5" PointX="12.25" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.BAOCAOTON" Width="1.5" PointX="4.625" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.CT_HOADON" Width="1.5" PointX="6.375" PointY="3.625" IsExpanded="true" />
@@ -28,6 +28,7 @@
         <AssociationConnector Association="Model.FK_PHIEUTHUTIEN_KHACHHANG" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_SACH_NhaXuatBan" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_SACH_THELOAI" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.TAIKHOAN" Width="1.5" PointX="5.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
