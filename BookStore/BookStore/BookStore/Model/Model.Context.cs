@@ -58,6 +58,8 @@ public partial class QuanLySachEntities : DbContext
 
     public virtual DbSet<THAMSO> THAMSO { get; set; }
 
+    public virtual DbSet<TAIKHOAN> TAIKHOAN { get; set; }
+
 }
 
 }
