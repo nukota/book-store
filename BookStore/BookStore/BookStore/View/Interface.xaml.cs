@@ -11,6 +11,11 @@ namespace BookStore.View
         {
             InitializeComponent();
         }
+        public Interface(string loaitaikhoan)
+        {
+            MessageBox.Show("Đăng nhập thành công", "Thông báo"); 
+            InitializeComponent();
+        }
 
         #region Window Tittle Bar
         private void MinimizeWindow(object sender, RoutedEventArgs e)

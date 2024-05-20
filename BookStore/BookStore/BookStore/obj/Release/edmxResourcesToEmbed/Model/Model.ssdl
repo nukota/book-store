@@ -114,6 +114,14 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="tentaikhoan" />
+    </Key>
+    <Property Name="tentaikhoan" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="matkhau" Type="varchar" MaxLength="20" />
+    <Property Name="loaitaikhoan" Type="varchar" MaxLength="5" />
+  </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'QuanLySach.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="THAMSO">
@@ -268,6 +276,7 @@ warning 6002: The table/view 'QuanLySach.dbo.THAMSO' does not have a primary key
     <EntitySet Name="PHIEUTHUTIEN" EntityType="Self.PHIEUTHUTIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SACH" EntityType="Self.SACH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THELOAI" EntityType="Self.THELOAI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THAMSO" EntityType="Self.THAMSO" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
