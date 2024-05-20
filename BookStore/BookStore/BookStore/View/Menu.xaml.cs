@@ -9,11 +9,11 @@ namespace BookStore.View
     {
         public Menu()
         {
+            MessageBox.Show("menu generated");
             InitializeComponent();
         }
-
+        
         #region Menu Items
-
         private void Books(object sender, RoutedEventArgs e)
         {
             Switcher.Switch(new Books());

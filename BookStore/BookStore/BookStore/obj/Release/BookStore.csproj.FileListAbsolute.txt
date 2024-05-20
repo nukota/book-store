@@ -229,3 +229,4 @@ D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\Bo
 D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\obj\Release\BookStore.csproj.CopyComplete
 D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\obj\Release\BookStore.exe
 D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\obj\Release\BookStore.pdb
+D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\obj\Release\Resources\MainResource.baml

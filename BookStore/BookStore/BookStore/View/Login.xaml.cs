@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BookStore.Model;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +16,10 @@ using System.Windows.Shapes;
 
 namespace BookStore.View
 {
-
+    
     public partial class Login : Window
     {
+        QuanLySachEntities context = new QuanLySachEntities();
         public Login()
         {
             InitializeComponent();
@@ -27,12 +30,43 @@ namespace BookStore.View
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
-
+        /*
+        private string _username;
+        private string _password;
+        public string Username
+        {
+            get { return _username; }
+            set { _username = value; }
+        }
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value;}
+        }*/
+       
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Interface home = new Interface();
-            home.Show();
-            this.Hide();
+            if (txtbUser.Text == "" || passwordBox.Password == "")
+            {
+                MessageBox.Show("Hãy nhập thông tin đăng nhập");
+            } else
+            {
+                TAIKHOAN _taikhoan = new TAIKHOAN();
+                _taikhoan.tentaikhoan = txtbUser.Text;
+                _taikhoan.matkhau = (from m in context.TAIKHOAN
+                                    where m.tentaikhoan == txtbUser.Text
+                                    select m.matkhau).FirstOrDefault();
+                if (_taikhoan.matkhau == null || _taikhoan.matkhau != passwordBox.Password)
+                {
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác!");
+                }
+                else
+                {
+                    Interface home = new Interface(_taikhoan.loaitaikhoan);
+                    home.Show();
+                    this.Hide();
+                } 
+            }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
