@@ -5,10 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModel="clr-namespace:BookStore.ViewModel"
+             xmlns:view="clr-namespace:BookStore.View"
              mc:Ignorable="d"
              Background="White"
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <viewModel:MenuViewModel/>
+    </UserControl.DataContext>
     <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <!-- Custom ToggleButton -->
         <Style x:Key="ToggleButton" TargetType="{x:Type ToggleButton}">
             <Setter Property="Template">
@@ -259,23 +264,23 @@
             </ListBox.ItemContainerStyle>
 
             <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
-            <Expander Header="Sách" Name="SachHeader">
+            <Expander Header="Sách" x:Name="SachHeader">
                 <StackPanel Margin="20,0,0,0">
                     <Button Name="Sach" Content="Sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="Books"/>
                     <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
                     <Button Name="DuLieuSach" Content="Dữ liệu sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="Info"/>
                     <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
 
-                    <Button Name="NhapSach" Content="Nhập Sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="ImportBook"/>
-                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
-                    <Button Name="BanSach" Content="Bán Sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="Sell"/>
-                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <Button Name="NhapSach" Visibility="{Binding NhapSachVisibility}" Content="Nhập Sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="ImportBook"/>
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Visibility="{Binding NhapSachVisibility}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <Button Name="BanSach" Visibility="{Binding BanSachVisibility}" Content="Bán Sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="Sell"/>
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Visibility="{Binding BanSachVisibility}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
                     <Button Name="TimKiemSach" Content="Tìm Kiếm sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="Find"/>
                 </StackPanel>
             </Expander>
             <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
 
-            <Expander Header="Khách Hàng" Name="KhachHangHeader">
+            <Expander Header="Khách Hàng" Name="KhachHangHeader" Visibility="{Binding KhachHangVisibility}" >
                 <StackPanel Margin="20,0,0,0">
                     <Button Name="KhachHang" Content="Khách Hàng" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="Customer"/>
                     <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
@@ -288,14 +293,14 @@
 
             <Expander Header="Báo cáo" Name="BaoCaoHeader">
                 <StackPanel Margin="20,0,0,0">
-                    <Button Name="BaoCaoTon" Content="Báo cáo tồn" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="ExistReport_Click" />
+                    <Button Name="BaoCaoTon" Visibility="{Binding BaoCaoTonVisibility}" Content="Báo cáo tồn" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="ExistReport_Click" />
                     <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
-                    <Button Name="BaoCaoCongNo" Content="Báo cáo công nợ" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="DebtReport_Click"/>
+                    <Button Name="BaoCaoCongNo" Visibility="{Binding BaoCaoCongNoVisibility}" Content="Báo cáo công nợ" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="DebtReport_Click"/>
                 </StackPanel>
             </Expander>
             <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
 
-            <Expander Header="Tùy chỉnh" Name="TuyChinhHeader">
+            <Expander Header="Tùy chỉnh" Name="TuyChinhHeader" Visibility="{Binding TuyChinhVisibility}" >
                 <StackPanel Margin="20,0,0,0">
                     <Button Name="ThayDoiQuyDinh" Content="Thay đổi quy định" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="Setting" />
                 </StackPanel>

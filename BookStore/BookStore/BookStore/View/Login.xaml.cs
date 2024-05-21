@@ -53,9 +53,9 @@ namespace BookStore.View
             {
                 TAIKHOAN _taikhoan = new TAIKHOAN();
                 _taikhoan.tentaikhoan = txtbUser.Text;
-                _taikhoan.matkhau = (from m in context.TAIKHOAN
+                _taikhoan = (from m in context.TAIKHOAN
                                     where m.tentaikhoan == txtbUser.Text
-                                    select m.matkhau).FirstOrDefault();
+                                    select m).FirstOrDefault();
                 if (_taikhoan.matkhau == null || _taikhoan.matkhau != passwordBox.Password)
                 {
                     MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác!");
@@ -63,6 +63,7 @@ namespace BookStore.View
                 else
                 {
                     Interface home = new Interface(_taikhoan.loaitaikhoan);
+                    App.Me.loaiTK = _taikhoan.loaitaikhoan;
                     home.Show();
                     this.Hide();
                 } 

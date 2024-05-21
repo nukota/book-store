@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using BookStore.ViewModel;
+using BookStore;
 
 namespace BookStore.View
 {
@@ -13,10 +14,10 @@ namespace BookStore.View
         }
         public Interface(string loaitaikhoan)
         {
+            App.Me.loaiTK = loaitaikhoan;
             MessageBox.Show("Đăng nhập thành công", "Thông báo"); 
             InitializeComponent();
         }
-
         #region Window Tittle Bar
         private void MinimizeWindow(object sender, RoutedEventArgs e)
         {
