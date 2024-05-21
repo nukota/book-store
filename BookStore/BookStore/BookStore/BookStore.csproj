@@ -157,6 +157,7 @@
     <Compile Include="ViewModel\ISwitchable.cs" />
     <Compile Include="ViewModel\MathConverter.cs" />
     <Compile Include="ViewModel\MathMultipleConverter.cs" />
+    <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\Switcher.cs" />
     <Compile Include="View\BookInfo.xaml.cs">

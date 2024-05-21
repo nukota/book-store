@@ -1,6 +1,10 @@
-﻿using System.Windows;
+﻿using System.Drawing;
+using System.Net.Mail;
+using System.Windows;
 using System.Windows.Controls;
 using BookStore.ViewModel;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace BookStore.View
 {
@@ -9,10 +13,11 @@ namespace BookStore.View
     {
         public Menu()
         {
-            MessageBox.Show("menu generated");
+            MessageBox.Show(App.Me.loaiTK);
             InitializeComponent();
         }
         
+
         #region Menu Items
         private void Books(object sender, RoutedEventArgs e)
         {
