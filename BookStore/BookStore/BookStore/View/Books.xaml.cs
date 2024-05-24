@@ -1,10 +1,19 @@
-﻿using System;
-using System.Windows.Controls;
-using BookStore.ViewModel;
-using BookStore.Model;
+﻿using BookStore.Model;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace BookStore.View
 {
@@ -179,6 +188,7 @@ namespace BookStore.View
                     }
                 }
                 setMutable();
+                updateBaoCaoTon(_sach);
             }
             else
                 MessageBox.Show("Không được để trống!", "Sách", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -192,6 +202,11 @@ namespace BookStore.View
             var DeleteRecord = MessageBox.Show("Bạn có chắc chắn muốn xóa sách " + item.TenSach + " không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (DeleteRecord == MessageBoxResult.Yes)
             {
+                BAOCAOTON _baocaoton = (from b in context.BAOCAOTON
+                                        where b.MaSach.Equals(item.MaSach)
+                                        select b).FirstOrDefault();
+                if (_baocaoton != null) { context.BAOCAOTON.Remove(_baocaoton);}
+                
                 context.SACH.Remove(item);
                 context.SaveChanges();
                 dataBooks.ItemsSource = getBooks();
@@ -219,6 +234,31 @@ namespace BookStore.View
             cbNhaXuatBan.ItemsSource = getNhaXuatBan();
             cbNhaXuatBan.DisplayMemberPath = "TenNhaXuatBan";
         }
-
+        private void updateBaoCaoTon(SACH sach)
+        {
+            BAOCAOTON _baocaoton = (from b in context.BAOCAOTON
+                                    where b.MaSach.Equals(sach.MaSach)
+                                    select b).FirstOrDefault();
+            if (_baocaoton == null) 
+            {
+                _baocaoton = new BAOCAOTON();
+                _baocaoton.MaSach = sach.MaSach;
+                _baocaoton.Thang = DateTime.Now.Month;
+                _baocaoton.Nam = DateTime.Now.Year;
+                _baocaoton.TonDau = sach.SoLuongTon;
+                _baocaoton.TonCuoi = sach.SoLuongTon;
+                _baocaoton.PhatSinh = 0;
+                context.BAOCAOTON.Add(_baocaoton);
+                context.SaveChanges();
+            }
+            else
+            {
+                _baocaoton.Thang = DateTime.Now.Month;
+                _baocaoton.Nam = DateTime.Now.Year;
+                _baocaoton.TonCuoi = sach.SoLuongTon;
+                _baocaoton.PhatSinh = _baocaoton.TonCuoi - _baocaoton.TonDau;
+                context.SaveChanges();
+            }
+        }
     }
 }
