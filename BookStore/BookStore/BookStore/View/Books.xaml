@@ -115,7 +115,8 @@
                     <DataGridTextColumn Binding="{Binding TacGia, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tác Giả"/>
                     <DataGridTextColumn Binding="{Binding GiaBan, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Đơn Giá"/>
                     <DataGridTextColumn Binding="{Binding NHAXUATBAN.TenNhaXuatBan, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Nhà Xuất Bản"/>
-                    <DataGridTextColumn Binding="{Binding THELOAI.TenTheLoai, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Thể Loại" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding THELOAI.TenTheLoai, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Thể Loại"/>
+                    <DataGridTextColumn Binding="{Binding SoLuongTon, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Số lượng tồn" Width="*"/>
                     <DataGridTemplateColumn Header="Thực Hiện">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
