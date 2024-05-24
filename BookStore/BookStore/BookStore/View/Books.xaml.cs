@@ -55,6 +55,7 @@ namespace BookStore.View
             cbTheLoai.IsEnabled = true;
             cbNhaXuatBan.IsEnabled = true;
             tbGiaBan.IsEnabled = true;
+            tbSoLuongTon.IsEnabled = true;
         }
 
         /// Set textbox mutable
@@ -67,6 +68,7 @@ namespace BookStore.View
             cbTheLoai.IsEnabled = false;
             cbNhaXuatBan.IsEnabled = false;
             tbGiaBan.IsEnabled = false;
+            tbSoLuongTon.IsEnabled = false;
         }
 
         private void setClear()
@@ -77,6 +79,7 @@ namespace BookStore.View
             cbTheLoai.Text = "";
             cbNhaXuatBan.Text = "";
             tbGiaBan.Clear();
+            tbSoLuongTon.Clear();
         }
 
         /// thêm sách
@@ -107,7 +110,8 @@ namespace BookStore.View
                 && !String.IsNullOrEmpty(tbTacGia.Text)
                 && !String.IsNullOrEmpty(cbTheLoai.Text)
                 && !String.IsNullOrEmpty(cbNhaXuatBan.Text)
-                && !String.IsNullOrEmpty(tbGiaBan.Text))
+                && !String.IsNullOrEmpty(tbGiaBan.Text)
+                && !String.IsNullOrEmpty(tbSoLuongTon.Text))
                 return false;
             return true;
         }
@@ -135,6 +139,7 @@ namespace BookStore.View
                             _sach.NHAXUATBAN = cbNhaXuatBan.SelectedValue as NHAXUATBAN;
 
                             _sach.GiaBan = Convert.ToInt32(tbGiaBan.Text);
+                            _sach.SoLuongTon = Convert.ToInt32(tbSoLuongTon.Text);
 
                             context.SACH.Add(_sach);
                             context.SaveChanges();
@@ -161,6 +166,7 @@ namespace BookStore.View
                         _sach.NHAXUATBAN = cbNhaXuatBan.SelectedValue as NHAXUATBAN;
 
                         _sach.GiaBan = Convert.ToInt32(tbGiaBan.Text);
+                        _sach.SoLuongTon = Convert.ToInt32(tbSoLuongTon.Text);
 
                         context.SaveChanges();
 
