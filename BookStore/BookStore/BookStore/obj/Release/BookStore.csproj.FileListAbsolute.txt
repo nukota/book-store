@@ -230,3 +230,7 @@ D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\Bo
 D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\obj\Release\BookStore.exe
 D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\obj\Release\BookStore.pdb
 D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\obj\Release\Resources\MainResource.baml
+D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\obj\Release\View\ImportReceipt.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\obj\Release\View\ImportReceipt.baml
+D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\obj\Release\View\SellReceipt.g.cs
+D:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\obj\Release\View\SellReceipt.baml

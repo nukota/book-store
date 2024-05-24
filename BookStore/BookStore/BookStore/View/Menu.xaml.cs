@@ -13,7 +13,7 @@ namespace BookStore.View
     {
         public Menu()
         {
-            MessageBox.Show(App.Me.loaiTK);
+            //MessageBox.Show(App.Me.loaiTK);
             InitializeComponent();
         }
         
