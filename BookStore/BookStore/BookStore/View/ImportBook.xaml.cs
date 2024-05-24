@@ -15,7 +15,8 @@ namespace BookStore.View
     {
         public ImportBook()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            dataPhieuNhap.IsEnabled = true;
         }
 
         #region ISwitchable Member
@@ -68,7 +69,9 @@ namespace BookStore.View
         /// </summary>
         private void btnAdd(object sender, RoutedEventArgs e)
         {
-            dataPhieuNhap.IsEnabled = true;
+            ImportReceipt wd = new ImportReceipt();
+            Application.Current.MainWindow = wd;
+            wd.ShowDialog();
         }
 
         /// <summary>
@@ -149,8 +152,7 @@ namespace BookStore.View
                 context.SaveChanges();
                 dataPhieuNhap.ItemsSource = getPhieuNhap();
             }
-            else
-                MessageBox.Show("Hãy chọn phiếu để lưu", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            else dataPhieuNhap.ItemsSource = getPhieuNhap();
         }
 
 

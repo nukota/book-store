@@ -15,6 +15,7 @@ namespace BookStore.View
         public Sell()
         {
             InitializeComponent();
+            dataHoaDon.IsEnabled = true;
         }
 
         #region ISwitchable Member
@@ -102,10 +103,17 @@ namespace BookStore.View
 
         private void btnAdd(object sender, RoutedEventArgs e)
         {
-            if (cbKhachHang.SelectedItem != null)
-                dataHoaDon.IsEnabled = true;
+            if (cbKhachHang.Text == null || cbKhachHang.Text == "")
+            {
+                MessageBox.Show("Hãy chọn khách hàng để lên hóa đơn!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            } 
             else
-                MessageBox.Show("Vui lòng chọn khách hàng trước khi tạo hóa đơn!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            {
+                SellReceipt wd = new SellReceipt(cbKhachHang.Text);
+                Application.Current.MainWindow = wd;
+                wd.ShowDialog();
+            }
+            
         }
 
         private void btnUpdate(object sender, RoutedEventArgs e)
@@ -143,8 +151,8 @@ namespace BookStore.View
                 dataHoaDon.ItemsSource = getHoaDon();
                 MessageBox.Show("Số tiền cần thanh toán là " + _sum, "Vui lòng Thanh Toán!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            else
-                MessageBox.Show("Hãy chọn hóa đơn để thanh toán", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            else dataHoaDon.ItemsSource = getHoaDon();
+
         }
 
         bool isInsertMode = false;

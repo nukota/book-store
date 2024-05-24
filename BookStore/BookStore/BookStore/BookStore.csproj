@@ -181,6 +181,9 @@
     <Compile Include="View\ImportBook.xaml.cs">
       <DependentUpon>ImportBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ImportReceipt.xaml.cs">
+      <DependentUpon>ImportReceipt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Interface.xaml.cs">
       <DependentUpon>Interface.xaml</DependentUpon>
     </Compile>
@@ -195,6 +198,9 @@
     </Compile>
     <Compile Include="View\Sell.xaml.cs">
       <DependentUpon>Sell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SellReceipt.xaml.cs">
+      <DependentUpon>SellReceipt.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
@@ -280,6 +286,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ImportReceipt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Interface.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -297,6 +307,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Sell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SellReceipt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
