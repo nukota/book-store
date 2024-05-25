@@ -14,7 +14,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -22,9 +22,9 @@
 
 
         <Grid Grid.Row="0" Grid.Column="1">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20">Thể Loại</TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" FontSize="20">THỂ LOẠI</TextBlock>
         </Grid>
-        
+
         <Grid Grid.Row="1" Grid.Column="1" Margin="10,10,10,5">
             <DataGrid x:Name="dataTheLoai" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserDeleteRows="True"
                       Loaded="theLoai_Loaded"
@@ -51,16 +51,20 @@
 
 
         <Grid Grid.Row="0" Grid.Column="0">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20">Nhà Xuất Bản</TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" FontSize="20">NHÀ XUẤT BẢN</TextBlock>
         </Grid>
-        
+
         <Grid Grid.Row="1" Grid.Column="0" Margin="10,10,10,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="347*"/>
+                <ColumnDefinition Width="135*"/>
+            </Grid.ColumnDefinitions>
             <DataGrid x:Name="dataNhaXuatBan" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserDeleteRows="True"
                       Loaded="nhaXuatBan_Loaded"
                       RowEditEnding="nhaXuatBan_RowEditEnding" 
                       CellEditEnding="nhaXuatBan_CellEditEnding"
                       AddingNewItem="nhaXuatBan_AddingNewItem" 
-                      BeginningEdit="nhaXuatBan_BeginningEdit" VerticalContentAlignment="Center">
+                      BeginningEdit="nhaXuatBan_BeginningEdit" VerticalContentAlignment="Center" Grid.ColumnSpan="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding MaNhaXuatBan, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mã Nhà Xuất Bản"/>
                     <DataGridTextColumn Binding="{Binding TenNhaXuatBan, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tên nhà xuất bản" Width="*"/>

@@ -14,6 +14,7 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         ResizeMode="NoResize" 
         Title="Quản Lý Nhà Sách" 
@@ -21,7 +22,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition/>
+            <RowDefinition Height="90"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -71,21 +72,21 @@
         <!-- Cover -->
 
         <Grid x:Name="pnlCover" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5">
-            <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" VerticalAlignment="Stretch">
-                <Label x:Name="ManageTitle" 
+            <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" VerticalAlignment="Stretch" Background="#fca103">
+                <Label x:Name="ManageTitle" FontFamily="arial"
                        Content="QUẢN LÝ NHÀ SÁCH" 
                        HorizontalAlignment="Left"
-                       FontSize="30"
-                       Margin="75,33,0,0" 
+                       FontSize="35"
+                       Margin="50,20,0,0" 
                        VerticalAlignment="Top" 
-                       Foreground="#000000" FontWeight="Bold" Background="{x:Null}" Height="48" Width="319"/>
+                       Foreground="#000000" FontWeight="Thin" Background="{x:Null}" Height="48" Width="400        "/>
             </materialDesign:ColorZone>
 
             <Image Grid.Row="0"
                Source="E:/Projects/Book Management Final/BookStore/BookStore/Resources/Login/icon123.png" Margin="10,17,1202,25" ></Image>
             
             <ComboBox
-            Margin="998,24,36,51"
+            Margin="998,-10,36,0"
             Height="40"
             Style="{StaticResource MaterialDesignFloatingHintComboBox}"
             materialDesign:TextFieldAssist.HasClearButton="True"
@@ -116,7 +117,7 @@
         <!-- View -->
                    
         <Grid x:Name="pnlView" Grid.Row="2" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="4">
-            <view:ViewSwitcher Margin="10,0,10,10" Height="555" VerticalAlignment="Bottom"/>
+            <view:ViewSwitcher Margin="10,0,10,10" Height="575" VerticalAlignment="Bottom"/>
         </Grid>
     </Grid>
 </Window>

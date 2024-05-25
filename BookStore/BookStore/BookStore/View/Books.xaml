@@ -131,35 +131,38 @@
             </DataGrid>
         </Grid>
 
-        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="15" Margin="249,10,609,0" Height="34" Background="Black" VerticalAlignment="Top">
-            <Button 
-                Content="Thêm Sách"
-                FontSize="12"
-                Background="{x:Null}"
-                Foreground="#ffff"
-                BorderBrush="{x:Null}"
-                Click="addBook"/>
-        </Border>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Margin="0 10 0 0">
+            <Border BorderBrush="#000000" BorderThickness="2" CornerRadius="15" Width="150" Height="34" Background="Black" VerticalAlignment="Top" Margin="10 0 10 0">
+                <Button 
+                    Content="Thêm Sách"
+                    FontSize="12"
+                    Background="{x:Null}"
+                    Foreground="#ffff"
+                    BorderBrush="{x:Null}"
+                    Click="addBook"/>
+            </Border>
+            <Border BorderBrush="#000000" BorderThickness="2" CornerRadius="15" Width="150" Height="34" Background="Black" VerticalAlignment="Top" Margin="10 0 10 0">
+                <Button 
+                    Content="Lưu Sách"
+                    FontSize="12"
+                    Background="{x:Null}"
+                    Foreground="#ffff"
+                    BorderBrush="{x:Null}"
+                    Click="saveBook"/>
+            </Border>
+            <Border BorderBrush="#000000" BorderThickness="2" CornerRadius="15" Width="150" Height="34" Background="Black" VerticalAlignment="Top" Margin="10 0 10 0">
+                <Button 
+                    Content="Cập Nhật Sách"
+                    FontSize="12"
+                    Background="{x:Null}"
+                    Foreground="#ffff"
+                    BorderBrush="{x:Null}"
+                    Click="updateBook"/>
+            </Border>
+        </StackPanel>
 
-        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="15" Margin="429,10,429,0" Height="34" Background="Black" VerticalAlignment="Top">
-            <Button 
-                Content="Lưu Sách"
-                FontSize="12"
-                Background="{x:Null}"
-                Foreground="#ffff"
-                BorderBrush="{x:Null}"
-                Click="saveBook"/>
-        </Border>
 
-        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="15" Margin="611,10,247,0" Height="34" Background="Black" VerticalAlignment="Top">
-            <Button 
-                Content="Cập Nhật Sách"
-                FontSize="12"
-                Background="{x:Null}"
-                Foreground="#ffff"
-                BorderBrush="{x:Null}"
-                Click="updateBook"/>
-        </Border>
+        
 
     </Grid>
 </UserControl>

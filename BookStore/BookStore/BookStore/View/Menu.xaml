@@ -125,7 +125,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <StackPanel>
+    <StackPanel Background="#fffaed">
         <ListBox Background="{x:Null}" Foreground="#000000" FontWeight="Bold">
             <ListBox.Resources>
                 <!-- Math Converter -->
