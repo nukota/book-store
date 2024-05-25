@@ -25,7 +25,7 @@
         <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="144,13,273,10" Grid.Column="1" Height="27" Width="158"><Run Text="Phiếu Bán Sách"/></TextBlock>
 
         <Grid x:Name="pnlBooks" Grid.Row="1" Grid.Column="0" IsEnabled="False">
-            <DataGrid x:Name="dataBooks" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,0,10,-280">
+            <DataGrid x:Name="dataBooks" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,0,10,-280" SelectionChanged="_selectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding MaSach, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mã Sách"/>
                     <DataGridTextColumn Binding="{Binding TenSach, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tên Sách"/>
@@ -58,15 +58,15 @@
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="2" Margin="0,20,0,5">
-            <Border BorderThickness="2" BorderBrush="Black"  CornerRadius="15" Height="32" Margin="0,16,23,139">
+            <Border BorderThickness="1.5" BorderBrush="Black"  CornerRadius="15" Height="32" Margin="0,16,23,139">
                 <TextBox x:Name="tbSoLuong" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="20,-2,19,-1"
-                     materialDesign:HintAssist.Hint="Nhập số lượng" FontSize="9"
+                     materialDesign:HintAssist.Hint="Nhập số lượng" FontSize="11"
                      IsEnabled="{Binding SelectedItem, ElementName=dataBooks}"/>
             </Border>
 
-            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="15" Height="32" Margin="0,69,23,86">
+            <Border BorderThickness="1.5" BorderBrush="Black" CornerRadius="15" Height="32" Margin="0,69,23,86">
                 <TextBox x:Name="tbDonGia" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="19,-2,24,-2"
-                     materialDesign:HintAssist.Hint="Nhập giá" FontSize="9"
+                     materialDesign:HintAssist.Hint="Giá bán" FontSize="11" IsReadOnly="True"
                      IsEnabled="{Binding SelectedItem, ElementName=dataBooks}"/>
             </Border>
             <Border BorderThickness="2" Background="Black" CornerRadius="15" Margin="0,121,23,31">

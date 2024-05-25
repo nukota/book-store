@@ -14,7 +14,6 @@
             <RowDefinition Height="400"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-
         
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="50 0 0 0">
@@ -94,12 +93,12 @@
             </DataGrid>
         </StackPanel>
 
-        <Border Grid.Row="2" BorderBrush="#707070" BorderThickness="2" CornerRadius="10" Margin="0 0 40 20" Width="150" Height="40" Background="#707070" HorizontalAlignment="Right">
-            <Button VerticalAlignment="Center" Click="xuatExcel"
-                Content="Xuất Excel"
+        <Border Grid.Row="2" BorderBrush="#fca103" BorderThickness="0" CornerRadius="10" Margin="0 0 40 20" Width="150" Height="40" Background="#fca103" HorizontalAlignment="Right">
+            <Button VerticalAlignment="Center" Click="xuatBaoCao"
+                Content="Xuất báo cáo"
                 FontSize="18"
                 Background="{x:Null}"
-                Foreground="#ffff"
+                Foreground="black"
                 BorderBrush="{x:Null}"/>
         </Border>
 

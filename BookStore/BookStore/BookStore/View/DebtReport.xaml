@@ -11,38 +11,96 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="400"/>
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="427,13,381,10" Height="27" Width="196"><Run Text="Báo Cáo Công Nợ"/></TextBlock>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="50 0 0 0">
+            <TextBlock Grid.Row="0" VerticalAlignment="Center" FontSize="35" FontWeight="DemiBold" Text="BÁO CÁO CÔNG NỢ"/>
+            <ComboBox x:Name="thang" Width="80" Height="26" FontSize="15" Margin="240 0 0 0"
+                SelectedValue="{Binding Thang, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Tháng"
+                SelectedValuePath="Content">
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>6</ComboBoxItem>
+                <ComboBoxItem>7</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>9</ComboBoxItem>
+                <ComboBoxItem>10</ComboBoxItem>
+                <ComboBoxItem>11</ComboBoxItem>
+                <ComboBoxItem>12</ComboBoxItem>
+            </ComboBox>
+            <ComboBox x:Name="nam" Width="80" Height="26" FontSize="15" Margin="30 0 0 0"
+        SelectedValue="{Binding Nam, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  materialDesign:HintAssist.Hint="Năm"
+        SelectedValuePath="Content" IsEditable="True">
+                <ComboBoxItem>2000</ComboBoxItem>
+                <ComboBoxItem>2001</ComboBoxItem>
+                <ComboBoxItem>2002</ComboBoxItem>
+                <ComboBoxItem>2003</ComboBoxItem>
+                <ComboBoxItem>2004</ComboBoxItem>
+                <ComboBoxItem>2005</ComboBoxItem>
+                <ComboBoxItem>2006</ComboBoxItem>
+                <ComboBoxItem>2007</ComboBoxItem>
+                <ComboBoxItem>2008</ComboBoxItem>
+                <ComboBoxItem>2009</ComboBoxItem>
+                <ComboBoxItem>2010</ComboBoxItem>
+                <ComboBoxItem>2011</ComboBoxItem>
+                <ComboBoxItem>2012</ComboBoxItem>
+                <ComboBoxItem>2013</ComboBoxItem>
+                <ComboBoxItem>2014</ComboBoxItem>
+                <ComboBoxItem>2015</ComboBoxItem>
+                <ComboBoxItem>2016</ComboBoxItem>
+                <ComboBoxItem>2017</ComboBoxItem>
+                <ComboBoxItem>2018</ComboBoxItem>
+                <ComboBoxItem>2019</ComboBoxItem>
+                <ComboBoxItem>2020</ComboBoxItem>
+                <ComboBoxItem>2021</ComboBoxItem>
+                <ComboBoxItem>2022</ComboBoxItem>
+                <ComboBoxItem>2023</ComboBoxItem>
+                <ComboBoxItem>2024</ComboBoxItem>
+            </ComboBox>
+            <Border BorderBrush="#000000" BorderThickness="2" CornerRadius="15" Margin="30 10 0 0" Width="130" Height="30" Background="Black">
+                <Button VerticalAlignment="Center" Click="LapBaoCao"
+                    Content="Lập báo cáo"
+                    FontSize="14"
+                    Background="{x:Null}"
+                    Foreground="#ffff"
+                    BorderBrush="{x:Null}"/>
+            </Border>
+        </StackPanel>
 
-        <Border  Grid.Row="1" BorderBrush="Black"  BorderThickness="2" CornerRadius="15" Margin="299,50,275,64">
-            <ComboBox DockPanel.Dock="Left" x:Name="thangbaocao" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="18,-2,16,-2"
-                              materialDesign:HintAssist.Hint="Chọn tháng"
-                              Width="Auto"
-                              FontSize="11"
-                              ItemsSource="{Binding}"
-                              IsReadOnly="True" Height="36"/>
+        <StackPanel Grid.Row="1" Background="#f5f5f5" Margin="40 0 40 0" x:Name="solieu">
+            <DataGrid x:Name="dataBaoCaoCongNo"  Background="#f5f5f5" Height="Auto" Width="Auto"
+                ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã khách hàng" Width="145" IsReadOnly="True" CanUserResize="False"
+                        Binding="{Binding MaKhachHang, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Tháng" Width="145" IsReadOnly="True" CanUserResize="False"
+                        Binding="{Binding Thang, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Năm" Width="145" IsReadOnly="True" CanUserResize="False"
+                        Binding="{Binding Nam, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Nợ đầu" Width="145" IsReadOnly="True" CanUserResize="False"
+                Binding="{Binding NoDau, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Nợ cuối" Width="145" IsReadOnly="True" CanUserResize="False"
+                Binding="{Binding NoCuoi, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Phát sinh" Width="*" IsReadOnly="True" CanUserResize="False"
+                Binding="{Binding PhatSinh, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+        <Border Grid.Row="2" BorderBrush="#fca103" BorderThickness="0" CornerRadius="10" Margin="0 0 40 20" Width="150" Height="40" Background="#fca103" HorizontalAlignment="Right">
+            <Button VerticalAlignment="Center" Click="xuatBaoCao"
+                Content="Xuất báo cáo"
+                FontSize="18"
+                Background="{x:Null}"
+                Foreground="black"
+                BorderBrush="{x:Null}"/>
         </Border>
 
-        <Border Grid.Row="1"  BorderBrush="Black" Background="Black" BorderThickness="2" CornerRadius="15" Margin="359,101,499,18" RenderTransformOrigin="0.5,0.5">
-            <Button 
-                        Content="Lập Hóa Đơn"
-                        Background="{x:Null}"
-                        FontSize="11"
-                        Foreground="White"
-                        BorderBrush="{x:Null}" Margin="3,-2,8,-2" Height="Auto"/>
-        </Border>
-
-        <Border Grid.Row="1"  BorderBrush="Black" Background="Black" BorderThickness="2" CornerRadius="15" Margin="544,101,314,18" RenderTransformOrigin="0.5,0.5">
-            <Button 
-                        Content="Xuất ra Excel"
-                        Background="{x:Null}"
-                        FontSize="11"
-                        Foreground="White"
-                        BorderBrush="{x:Null}" Margin="3,-2,8,-2" Height="Auto"/>
-        </Border>
 
     </Grid>
 </UserControl>

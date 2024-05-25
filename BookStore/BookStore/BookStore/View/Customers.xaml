@@ -16,7 +16,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <TextBlock FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center">Quản lý khách hàng</TextBlock>
+            <TextBlock FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center">QUẢN LÝ KHÁCH HÀNG</TextBlock>
         </Grid>
 
         <Grid Grid.Row="1">
@@ -32,8 +32,8 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="13" Margin="120,29,274,5" RenderTransformOrigin="0.524,0.05">Mã Khách Hàng</TextBlock>
-            <Border Grid.Row="0" Grid.Column="0" BorderBrush="	#444444" BorderThickness="2" CornerRadius="20" Margin="234,16,63,3" >
+            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="13" Margin="120,15,0,0" RenderTransformOrigin="0.524,0.05">Mã Khách Hàng</TextBlock>
+            <Border Grid.Row="0" Grid.Column="0" BorderBrush="	#444444" BorderThickness="1.5" CornerRadius="15" Margin="234,0,0,0" Height="32">
                 <TextBox x:Name="tbMaKH"  Margin="18,-2,19,-1"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      materialDesign:HintAssist.Hint="Nhập Mã Khách Hàng" IsEnabled="False"
@@ -42,8 +42,8 @@
                      Text="{Binding SelectedItem.MaKhachHang, ElementName=dataCustomers}" Height="34"/>
             </Border>
 
-            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="13" Margin="120,25,274,49" Grid.RowSpan="2">Tên Khách Hàng</TextBlock>
-            <Border Grid.Row="1" Grid.Column="0" BorderBrush="#444444" BorderThickness="2" CornerRadius="20" Margin="234,12,10,6" >
+            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="13" Margin="120,15,0,0" Grid.RowSpan="2">Tên Khách Hàng</TextBlock>
+            <Border Grid.Row="1" Grid.Column="0" BorderBrush="#444444" BorderThickness="1.5" CornerRadius="15" Margin="234,0,0,0" Height="32">
                 <TextBox x:Name="tbTenKH"  Margin="18,-2,19,-1"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      materialDesign:HintAssist.Hint="Nhập Tên Khách Hàng" IsEnabled="False"
@@ -52,8 +52,8 @@
                      Text="{Binding SelectedItem.TenKhachHang, ElementName=dataCustomers}" Height="34"/>
             </Border>
 
-            <TextBlock Grid.Row="2" Grid.Column="0" FontSize="13" Margin="170,23,274,-10">Đia Chỉ</TextBlock>
-            <Border Grid.Row="2" Grid.Column="0" BorderBrush="#444444" BorderThickness="2" CornerRadius="20" Margin="234,10,80,8" >
+            <TextBlock Grid.Row="2" Grid.Column="0" FontSize="13" Margin="170,15,0,0">Đia Chỉ</TextBlock>
+            <Border Grid.Row="2" Grid.Column="0" BorderBrush="#444444" BorderThickness="1.5" CornerRadius="15" Margin="234,0,0,0" Height="32">
                 <TextBox x:Name="tbDiaChi"  Margin="18,-2,19,-1"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      materialDesign:HintAssist.Hint="Nhập Đia Chỉ" IsEnabled="False"
@@ -63,8 +63,8 @@
             </Border>
 
 
-            <TextBlock Grid.Row="0" Grid.Column="2" FontSize="13" Margin="32,29,367,48" Grid.RowSpan="2">Số Điện Thoại</TextBlock>
-            <Border Grid.Row="0" Grid.Column="2" BorderBrush="#444444" BorderThickness="2" CornerRadius="20" Margin="157,16,107,3" >
+            <TextBlock Grid.Row="0" Grid.Column="2" FontSize="13" Margin="55,15,0,0" Grid.RowSpan="2">Số Điện Thoại</TextBlock>
+            <Border Grid.Row="0" Grid.Column="2" BorderBrush="#444444" BorderThickness="1.5" CornerRadius="15" Margin="157,0,80,0" Height="32">
                 <TextBox x:Name="tbSDT"  Margin="18,-2,19,-1"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      materialDesign:HintAssist.Hint="Nhập Số điện thoại" IsEnabled="False"
@@ -73,8 +73,8 @@
                      Text="{Binding SelectedItem.SDT, ElementName=dataCustomers}" Height="34"/>
             </Border>
 
-            <TextBlock Grid.Row="1" Grid.Column="2" FontSize="13" Margin="32,25,376,51" Grid.RowSpan="2">Email</TextBlock>
-            <Border Grid.Row="1" Grid.Column="2" BorderBrush="#444444" BorderThickness="2" CornerRadius="20" Margin="121,12,107,7">
+            <TextBlock Grid.Row="1" Grid.Column="2" FontSize="13" Margin="55,15,0,0" Grid.RowSpan="2">Email</TextBlock>
+            <Border Grid.Row="1" Grid.Column="2" BorderBrush="#444444" BorderThickness="1.5" CornerRadius="15" Margin="157,0,80,0" Height="32">
                 <TextBox x:Name="tbEmail"  Margin="18,-3,19,-1"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      materialDesign:HintAssist.Hint="Nhập Email" IsEnabled="False"
@@ -83,8 +83,8 @@
                      Text="{Binding SelectedItem.Email, ElementName=dataCustomers}" Height="34"/>
             </Border>
 
-            <TextBlock Grid.Row="2" Grid.Column="2" FontSize="13" Margin="32,23,376,0">Tiền nợ</TextBlock>
-            <Border Grid.Row="2" Grid.Column="2" BorderBrush="#444444" BorderThickness="2" CornerRadius="20" Margin="121,11,107,8">
+            <TextBlock Grid.Row="2" Grid.Column="2" FontSize="13" Margin="55,15,0,0">Tiền nợ</TextBlock>
+            <Border Grid.Row="2" Grid.Column="2" BorderBrush="#444444" BorderThickness="1.5" CornerRadius="15" Margin="157,0,80,0" Height="32">
                 <TextBox x:Name="tbTienNo"  Margin="18,-3,19,-1"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      materialDesign:HintAssist.Hint="Số tiền nợ" IsEnabled="False"
@@ -94,7 +94,7 @@
             </Border>
         </Grid>
 
-        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="20" Margin="249,10,609,0" Height="34" Background="Black" VerticalAlignment="Top">
+        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="1.5" CornerRadius="15" Margin="249,10,609,0" Height="34" Background="Black" VerticalAlignment="Top">
             <Button 
                 Content="Thêm Khách Hàng"
                 FontSize="12"
@@ -104,7 +104,7 @@
                 Click="btnAdd"/>
         </Border>
 
-        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="20" Margin="429,10,429,0" Height="34" Background="Black" VerticalAlignment="Top">
+        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="1.5" CornerRadius="15" Margin="429,10,429,0" Height="34" Background="Black" VerticalAlignment="Top">
             <Button 
                 Content="Lưu Khách Hàng"
                 FontSize="12"
@@ -114,7 +114,7 @@
                 Click="btnSave"/>
         </Border>
 
-        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="2" CornerRadius="20" Margin="611,10,230,0" Height="34" Background="Black" VerticalAlignment="Top">
+        <Border Grid.Row="2" BorderBrush="#000000" BorderThickness="1.5" CornerRadius="15" Margin="611,10,230,0" Height="34" Background="Black" VerticalAlignment="Top">
             <Button 
                 Content="Cập Nhật Khách Hàng"
                 FontSize="12"
