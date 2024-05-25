@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using BookStore.Model;
 using System.Linq;
 using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace BookStore.View
 {
@@ -17,6 +18,7 @@ namespace BookStore.View
         {
             InitializeComponent();
             dataPhieuNhap.IsEnabled = true;
+            thamSo();
         }
 
         #region ISwitchable Member
@@ -32,6 +34,15 @@ namespace BookStore.View
         #region DataContext
 
         QuanLySachEntities context = new QuanLySachEntities();
+
+        int soLuongTonToiDa;
+        int soLuongNhapToiThieu;
+        private void thamSo()
+        {
+            ObservableCollection<THAMSO> _thamso = new ObservableCollection<THAMSO>(context.THAMSO);
+            soLuongTonToiDa = _thamso[0].SoLuongTonToiDa;
+            soLuongNhapToiThieu = _thamso[0].SoLuongNhapToiThieu;
+        }
 
         private ObservableCollection<PHIEUNHAPSACH> getPhieuNhap()
         {

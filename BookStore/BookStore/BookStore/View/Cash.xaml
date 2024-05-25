@@ -17,7 +17,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold">Phiếu thu tiền</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="DemiBold">PHIẾU THU TIỀN</TextBlock>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -28,8 +28,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Margin="141,28,236,10">Khách Hàng</TextBlock>
-            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="20" Margin="257,16,16,10">
+            <TextBlock Margin="130,30,0,0" FontSize="15">Khách Hàng</TextBlock>
+            <Border BorderBrush="Black" BorderThickness="1.5" CornerRadius="15" Margin="240,15,0,0" Width="240" Height="35">
                 <ComboBox x:Name="cbKhachHang" 
                       IsEditable="False" 
                       Margin="18,-2,16,-2"
@@ -41,8 +41,8 @@
                       VerticalAlignment="Center"/>
             </Border>
 
-            <TextBlock Margin="34,30,416,4" Grid.Column="1">Tiền Nợ</TextBlock>
-            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="20" Margin="117,16,166,8" Grid.Row="0" Grid.Column="1">
+            <TextBlock Margin="45,30,0,0" Grid.Column="1" FontSize="15">Tiền Nợ</TextBlock>
+            <Border BorderBrush="Black" BorderThickness="1.5" CornerRadius="15" Margin="30,15,0,0" Grid.Row="0" Grid.Column="1" Width="240" Height="35">
                 <TextBox x:Name="tbTienNo"  
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,-2,18,-1"
                      materialDesign:HintAssist.Hint="Tiền nợ" IsEnabled="False"
@@ -50,8 +50,8 @@
                      Text="{Binding SelectedItem.SoTienNo, ElementName=cbKhachHang}" VerticalContentAlignment="Stretch" VerticalAlignment="Center" HorizontalAlignment="Right" Width="180" Height="35"/>
             </Border>
 
-            <TextBlock Margin="141,27,249,10" Grid.Row="1" Grid.Column="0">Nhập số tiền thu</TextBlock>
-            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="20" Grid.Row="1" Grid.Column="0" Margin="298,16,16,10" >
+            <TextBlock Margin="130,30,0,0" Grid.Row="1" Grid.Column="0"  FontSize="15">Nhập số tiền thu</TextBlock>
+            <Border BorderBrush="Black" BorderThickness="1.5" CornerRadius="15" Grid.Row="1" Grid.Column="0" Margin="240,15,0,0" Width="240" Height="35">
                 <TextBox x:Name="tbTienThu" 
                      materialDesign:HintAssist.Hint="Nhập số tiền thu"
                      FontSize="11"
@@ -59,8 +59,8 @@
                      VerticalContentAlignment="Stretch" VerticalAlignment="Center" Height="33"/>
             </Border>
 
-            <TextBlock Margin="34,27,366,10" Grid.Row="1" Grid.Column="1">Mã phiếu thu</TextBlock>
-            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Width="160" Margin="0,16,225,10">
+            <TextBlock Margin="45,30,0,0" Grid.Row="1" Grid.Column="1"  FontSize="15">Mã phiếu thu</TextBlock>
+            <Border BorderBrush="Black" BorderThickness="1.5" CornerRadius="15" Grid.Row="1" Grid.Column="1" Margin="30,15,0,0" Width="240" Height="35">
                 <TextBox x:Name="tbMaPT" Grid.Row="1" Grid.Column="0" 
                      materialDesign:HintAssist.Hint="Nhập mã phiếu thu"
                      FontSize="11"
@@ -70,13 +70,13 @@
 
         </Grid>
 
-        <Border Grid.Row="2" BorderBrush="Black" Background="Black" BorderThickness="2" CornerRadius="20" Margin="425,14,425,0">
+        <Border Grid.Row="2" BorderBrush="Black" Background="#fca103" BorderThickness="1.5" CornerRadius="15" Margin="425,14,425,0">
             <Button Content="Thêm phiếu thu"         
                     Click="btnAdd" 
-                    FontSize="12"
+                    FontSize="15"
+                    Foreground="Black"
                     Background="{x:Null}"
-                    BorderBrush="{x:Null}"
-                    Foreground="#ffff"/>
+                    BorderBrush="{x:Null}"/>
         </Border>
 
         <DataGrid x:Name="dataCash" Grid.Row="3" Margin="0,20,0,0" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding}" >

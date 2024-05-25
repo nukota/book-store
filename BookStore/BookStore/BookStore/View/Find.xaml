@@ -15,9 +15,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Tìm kiếm sách</TextBlock>
+        <TextBlock FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold">TÌM KIẾM SÁCH</TextBlock>
+        <Border BorderBrush="#fca103" BorderThickness="2" Height="3" Width="550" Margin="0 45 0 0"/>
 
-        <Border Grid.Row="1" Background="White" BorderBrush="Black" BorderThickness="2" CornerRadius="20" Margin="225,6,225,4">
+        <Border Grid.Row="1" Background="White" BorderBrush="Black" BorderThickness="1.5" CornerRadius="15" Margin="225,6,225,4">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -38,7 +39,7 @@
             </Grid>
         </Border>
 
-        <DataGrid x:Name="dataSearch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="2" Margin="0,20,0,0" SelectionChanged="dataSearch_SelectionChanged">
+        <DataGrid x:Name="dataSearch" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="2" Margin="0,10,0,0" SelectionChanged="dataSearch_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding MaSach, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mã Sách"/>
                 <DataGridTextColumn Binding="{Binding TenSach, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tên Sách"/>
