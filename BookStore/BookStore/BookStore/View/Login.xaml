@@ -82,7 +82,7 @@
             
             <StackPanel Orientation="Horizontal">
                 <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" 
-                   Margin="0" Width="70" Height="20" RenderTransformOrigin="0.272,0.528" FontSize="16">Tài khoản
+                    Margin="-10 0 0 0" RenderTransformOrigin="0.272,0.528" FontSize="16">Tài khoản:
                 </TextBlock>
                 <Border Margin="10,0,0,0" BorderBrush="#ddd" BorderThickness="1.5" CornerRadius="15" Grid.Row="1" Width="300" Height="35">
                     <TextBox x:Name="txtbUser" FontSize="15"
@@ -95,7 +95,7 @@
             
             <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
                 <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" 
-                   Margin="0" Width="70" Height="20" RenderTransformOrigin="0.533,0.639" FontSize="16">Mật khẩu
+                   Margin="-10 0 0 0" RenderTransformOrigin="0.533,0.639" FontSize="16">Mật khẩu:
                 </TextBlock>
                 <Border Margin="10,0,0,0" BorderBrush="#ddd" BorderThickness="1.5" CornerRadius="15" Grid.Row="1" Width="300" Height="35">
                     <PasswordBox x:Name="passwordBox" FontSize="15"

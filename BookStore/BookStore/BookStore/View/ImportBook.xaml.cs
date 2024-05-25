@@ -245,35 +245,28 @@ namespace BookStore.View
                 {
                     _chitiet = new CT_PHIEUNHAPSACH();
                     var _sach = dataBooks.SelectedItem as SACH;
-                    _chitiet = context.CT_PHIEUNHAPSACH.Find(_phieu.SoPNS, _sach.MaSach);
-                    if (_chitiet == null)
+                    if (_sach.SoLuongTon >= soLuongTonToiDa)
                     {
-                        _chitiet = new CT_PHIEUNHAPSACH();
-                        _chitiet.SoPNS = _phieu.SoPNS;
-                        _chitiet.SACH = dataBooks.SelectedItem as SACH;
-                        _chitiet.MaSach = _chitiet.SACH.MaSach;
-                        _chitiet.SoLuongNhap = Convert.ToInt32(tbSoLuong.Text);
-                        _chitiet.DonGiaNhap = Convert.ToInt32(tbDonGia.Text);
-                        _chitiet.ThanhTien = _chitiet.SoLuongNhap * _chitiet.DonGiaNhap;
-
-                        context.CT_PHIEUNHAPSACH.Add(_chitiet);
-                        context.SaveChanges();
-
-                        var query = from b in context.CT_PHIEUNHAPSACH
-                                    where b.SoPNS.Equals(_phieu.SoPNS)
-                                    select b;
-                        ObservableCollection<CT_PHIEUNHAPSACH> data = new ObservableCollection<CT_PHIEUNHAPSACH>(query);
-                        dataCT.ItemsSource = data;
+                        MessageBox.Show("Số sách vượt quá số lượng tồn tối đa (" + _sach.SoLuongTon + "/" + soLuongTonToiDa + ")!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    else if (int.Parse(tbSoLuong.Text) < soLuongNhapToiThieu)
+                    {
+                        MessageBox.Show("Cần nhập số lượng ít nhất là " + soLuongNhapToiThieu + " cuốn!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                     else
                     {
-                        var InsertRecord = MessageBox.Show("Bạn có chắc chắn muốn sửa phiếu nhập mã " + _phieu.SoPNS + " không?", "Thông Báo", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (InsertRecord == MessageBoxResult.Yes)
+                        _chitiet = context.CT_PHIEUNHAPSACH.Find(_phieu.SoPNS, _sach.MaSach);
+                        if (_chitiet == null)
                         {
+                            _chitiet = new CT_PHIEUNHAPSACH();
+                            _chitiet.SoPNS = _phieu.SoPNS;
+                            _chitiet.SACH = dataBooks.SelectedItem as SACH;
+                            _chitiet.MaSach = _chitiet.SACH.MaSach;
                             _chitiet.SoLuongNhap = Convert.ToInt32(tbSoLuong.Text);
                             _chitiet.DonGiaNhap = Convert.ToInt32(tbDonGia.Text);
                             _chitiet.ThanhTien = _chitiet.SoLuongNhap * _chitiet.DonGiaNhap;
 
+                            context.CT_PHIEUNHAPSACH.Add(_chitiet);
                             context.SaveChanges();
 
                             var query = from b in context.CT_PHIEUNHAPSACH
@@ -282,7 +275,26 @@ namespace BookStore.View
                             ObservableCollection<CT_PHIEUNHAPSACH> data = new ObservableCollection<CT_PHIEUNHAPSACH>(query);
                             dataCT.ItemsSource = data;
                         }
+                        else
+                        {
+                            var InsertRecord = MessageBox.Show("Bạn có chắc chắn muốn sửa phiếu nhập mã " + _phieu.SoPNS + " không?", "Thông Báo", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                            if (InsertRecord == MessageBoxResult.Yes)
+                            {
+                                _chitiet.SoLuongNhap = Convert.ToInt32(tbSoLuong.Text);
+                                _chitiet.DonGiaNhap = Convert.ToInt32(tbDonGia.Text);
+                                _chitiet.ThanhTien = _chitiet.SoLuongNhap * _chitiet.DonGiaNhap;
+
+                                context.SaveChanges();
+
+                                var query = from b in context.CT_PHIEUNHAPSACH
+                                            where b.SoPNS.Equals(_phieu.SoPNS)
+                                            select b;
+                                ObservableCollection<CT_PHIEUNHAPSACH> data = new ObservableCollection<CT_PHIEUNHAPSACH>(query);
+                                dataCT.ItemsSource = data;
+                            }
+                        }
                     }
+                    
                 }
             }
         }

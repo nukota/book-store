@@ -253,8 +253,6 @@ namespace BookStore.View
             }
             else
             {
-                _baocaoton.Thang = DateTime.Now.Month;
-                _baocaoton.Nam = DateTime.Now.Year;
                 _baocaoton.TonCuoi = sach.SoLuongTon;
                 _baocaoton.PhatSinh = _baocaoton.TonCuoi - _baocaoton.TonDau;
                 context.SaveChanges();
