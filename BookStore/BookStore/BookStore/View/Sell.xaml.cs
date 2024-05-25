@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Collections.ObjectModel;
 using BookStore.Model;
 using System.Linq;
+using System.Windows.Controls.Primitives;
 
 namespace BookStore.View
 {
@@ -149,6 +150,7 @@ namespace BookStore.View
                 changed.ThanhToan = _sum;
                 context.SaveChanges();
                 dataHoaDon.ItemsSource = getHoaDon();
+                updateBaoCaoCongNo(selected);
                 MessageBox.Show("Số tiền cần thanh toán là " + _sum, "Vui lòng Thanh Toán!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else dataHoaDon.ItemsSource = getHoaDon();
@@ -301,6 +303,45 @@ namespace BookStore.View
             cbKhachHang.DisplayMemberPath = "TenKhachHang";
 
             dataBooks.ItemsSource = getBooks();
+        }
+        private void _selectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var _sach = dataBooks.SelectedItem as SACH;
+            tbDonGia.Text = (from b in context.SACH
+                             where b.MaSach.Equals(_sach.MaSach)
+                             select b.GiaBan).FirstOrDefault().ToString();
+        }
+        private void updateBaoCaoCongNo(HOADON hoadon)
+        {
+            BAOCAOCONGNO baoCaoCongNo =  (from b in context.BAOCAOCONGNO
+                        where b.MaKhachHang.Equals(hoadon.MaKhachHang)
+                        select b).FirstOrDefault();
+            if (baoCaoCongNo == null)
+            {
+                BAOCAOCONGNO _baoCaoCongNo = new BAOCAOCONGNO();
+                _baoCaoCongNo.MaKhachHang = hoadon.MaKhachHang;
+                _baoCaoCongNo.Thang = DateTime.Now.Month;
+                _baoCaoCongNo.Nam = DateTime.Now.Year;
+                if (hoadon.ThanhToan == null)
+                    _baoCaoCongNo.NoDau = 0;
+                else _baoCaoCongNo.NoDau = int.Parse(hoadon.ThanhToan.ToString());
+                _baoCaoCongNo.NoCuoi = _baoCaoCongNo.NoDau;
+                _baoCaoCongNo.PhatSinh = 0;
+                context.BAOCAOCONGNO.Add(_baoCaoCongNo);
+                context.SaveChanges();
+                MessageBox.Show("Đã thêm báo cáo công nợ cho khách hàng số " + hoadon.MaKhachHang + "!");
+            }
+            else
+            {
+                baoCaoCongNo.Thang = DateTime.Now.Month;
+                baoCaoCongNo.Nam = DateTime.Now.Year;
+                if (hoadon.ThanhToan != null)
+                {
+                    baoCaoCongNo.NoCuoi += int.Parse(hoadon.ThanhToan.ToString());
+                    baoCaoCongNo.PhatSinh = baoCaoCongNo.NoCuoi - baoCaoCongNo.NoDau;
+                }
+                context.SaveChanges();
+            }
         }
     }
 }

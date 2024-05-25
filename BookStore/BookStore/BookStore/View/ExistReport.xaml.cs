@@ -60,7 +60,7 @@ namespace BookStore.View
         {
             dataBaoCaoTon.ItemsSource = getBaoCaoTon();
         }
-        private void xuatExcel(object sender, RoutedEventArgs e)
+        private void xuatBaoCao(object sender, RoutedEventArgs e)
         {
             try
             {

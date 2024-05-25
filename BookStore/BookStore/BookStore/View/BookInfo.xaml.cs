@@ -13,7 +13,7 @@ namespace BookStore.View
         QuanLySachEntities context = new QuanLySachEntities();
         bool isInsertMode = false;
         bool isBeingEdited = false;
-
+        
         bool isInsertMode2 = false;
         bool isBeingEdited2 = false;
 

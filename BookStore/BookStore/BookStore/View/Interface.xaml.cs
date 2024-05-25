@@ -15,7 +15,6 @@ namespace BookStore.View
         public Interface(string loaitaikhoan)
         {
             App.Me.loaiTK = loaitaikhoan;
-            MessageBox.Show("Đăng nhập thành công", "Thông báo"); 
             InitializeComponent();
         }
         #region Window Tittle Bar
