@@ -1,18 +1,20 @@
-﻿E:\Projects\Book Management Final\BookStore\BookStore\obj\Debug\GeneratedInternalTypeHelper.g.cs
-FE:\Projects\Book Management Final\BookStore\BookStore\App.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\BookInfo.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\Books.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\Cash.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\Customers.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\DebtReport.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\Find.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\ImportBook.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\Interface.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\Menu.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\SearchCustomer.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\Sell.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\Setting.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\Test.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\ExistReport.xaml;;
-FE:\Projects\Book Management Final\BookStore\BookStore\View\ViewSwitcher.xaml;;
+﻿
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\App.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\BookInfo.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\Books.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\Cash.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\Customers.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\DebtReport.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\Find.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\ImportBook.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\ImportReceipt.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\Interface.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\Menu.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\SearchCustomer.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\Sell.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\SellReceipt.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\Setting.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\Test.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\ExistReport.xaml;;
+FD:\UIT\SE104 - Nhap mon CNPM\SE104 - Đồ Án\SE104-DoAn\BookStore\BookStore\BookStore\View\ViewSwitcher.xaml;;
 

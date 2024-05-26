@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -131,15 +132,49 @@ namespace BookStore.View
             SACH _sach = new SACH();
             if (!isNull())
             {
+                bool kt = true;
                 if (tbMaSach.IsEnabled)
                 {
                     var Confirm = MessageBox.Show("Bạn có chắc muốn thêm sách " + tbTenSach.Text + " không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (Confirm == MessageBoxResult.Yes)
                     {
-                        var _find = Convert.ToInt32(tbMaSach.Text);
-                        if (context.SACH.Find(_find) == null)
+                        try
                         {
-                            _sach.MaSach = Convert.ToInt32(tbMaSach.Text);
+                            var _find = Convert.ToInt32(tbMaSach.Text);
+                            if (context.SACH.Find(_find) == null)
+                            {
+                                _sach.MaSach = Convert.ToInt32(tbMaSach.Text);
+
+                                _sach.TenSach = tbTenSach.Text;
+                                _sach.TacGia = tbTacGia.Text;
+
+                                _sach.THELOAI = cbTheLoai.SelectedValue as THELOAI;
+                                _sach.NHAXUATBAN = cbNhaXuatBan.SelectedValue as NHAXUATBAN;
+
+                                _sach.GiaBan = Convert.ToInt32(tbGiaBan.Text);
+                                _sach.SoLuongTon = Convert.ToInt32(tbSoLuongTon.Text);
+
+                                context.SACH.Add(_sach);
+                                context.SaveChanges();
+
+                                dataBooks.ItemsSource = getBooks();
+                                setMutable();
+                                dataBooks.IsEnabled = true;
+                            }
+                            else
+                                MessageBox.Show("Mã sách không được trùng", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                        catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); kt = false; }
+                    }
+                }
+                else
+                {
+                    var Confirm = MessageBox.Show("Bạn có chắc muốn sửa sách " + tbTenSach.Text + " không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (Confirm == MessageBoxResult.Yes)
+                    {
+                        try
+                        {
+                            _sach = context.SACH.Find(Convert.ToInt32(tbMaSach.Text));
 
                             _sach.TenSach = tbTenSach.Text;
                             _sach.TacGia = tbTacGia.Text;
@@ -150,45 +185,21 @@ namespace BookStore.View
                             _sach.GiaBan = Convert.ToInt32(tbGiaBan.Text);
                             _sach.SoLuongTon = Convert.ToInt32(tbSoLuongTon.Text);
 
-                            context.SACH.Add(_sach);
                             context.SaveChanges();
 
                             dataBooks.ItemsSource = getBooks();
+
+                            MessageBox.Show("Sửa sách thành công", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+
                             setMutable();
                             dataBooks.IsEnabled = true;
                         }
-                        else
-                            MessageBox.Show("Mã sách không được trùng", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    }
-                }
-                else
-                {
-                    var Confirm = MessageBox.Show("Bạn có chắc muốn sửa sách " + tbTenSach.Text + " không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                    if (Confirm == MessageBoxResult.Yes)
-                    {
-                        _sach = context.SACH.Find(Convert.ToInt32(tbMaSach.Text));
-
-                        _sach.TenSach = tbTenSach.Text;
-                        _sach.TacGia = tbTacGia.Text;
-
-                        _sach.THELOAI = cbTheLoai.SelectedValue as THELOAI;
-                        _sach.NHAXUATBAN = cbNhaXuatBan.SelectedValue as NHAXUATBAN;
-
-                        _sach.GiaBan = Convert.ToInt32(tbGiaBan.Text);
-                        _sach.SoLuongTon = Convert.ToInt32(tbSoLuongTon.Text);
-
-                        context.SaveChanges();
-
-                        dataBooks.ItemsSource = getBooks();
-
-                        MessageBox.Show("Sửa sách thành công", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
-
-                        setMutable();
-                        dataBooks.IsEnabled = true;
+                        catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); kt = false; }
                     }
                 }
                 setMutable();
-                updateBaoCaoTon(_sach);
+                if (kt) { updateBaoCaoTon(_sach); }
+                
             }
             else
                 MessageBox.Show("Không được để trống!", "Sách", MessageBoxButton.OK, MessageBoxImage.Information);

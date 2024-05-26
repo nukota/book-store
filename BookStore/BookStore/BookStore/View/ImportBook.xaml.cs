@@ -4,8 +4,7 @@ using System.Windows.Controls;
 using System.Collections.ObjectModel;
 using BookStore.Model;
 using System.Linq;
-using System.Collections.Generic;
-using System.Data.Entity;
+using System.Windows.Controls.Primitives;
 
 namespace BookStore.View
 {
@@ -249,51 +248,64 @@ namespace BookStore.View
                     {
                         MessageBox.Show("Số sách vượt quá số lượng tồn tối đa (" + _sach.SoLuongTon + "/" + soLuongTonToiDa + ")!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
-                    else if (int.Parse(tbSoLuong.Text) < soLuongNhapToiThieu)
+                    else try
                     {
-                        MessageBox.Show("Cần nhập số lượng ít nhất là " + soLuongNhapToiThieu + " cuốn!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    }
-                    else
-                    {
-                        _chitiet = context.CT_PHIEUNHAPSACH.Find(_phieu.SoPNS, _sach.MaSach);
-                        if (_chitiet == null)
-                        {
-                            _chitiet = new CT_PHIEUNHAPSACH();
-                            _chitiet.SoPNS = _phieu.SoPNS;
-                            _chitiet.SACH = dataBooks.SelectedItem as SACH;
-                            _chitiet.MaSach = _chitiet.SACH.MaSach;
-                            _chitiet.SoLuongNhap = Convert.ToInt32(tbSoLuong.Text);
-                            _chitiet.DonGiaNhap = Convert.ToInt32(tbDonGia.Text);
-                            _chitiet.ThanhTien = _chitiet.SoLuongNhap * _chitiet.DonGiaNhap;
-
-                            context.CT_PHIEUNHAPSACH.Add(_chitiet);
-                            context.SaveChanges();
-
-                            var query = from b in context.CT_PHIEUNHAPSACH
-                                        where b.SoPNS.Equals(_phieu.SoPNS)
-                                        select b;
-                            ObservableCollection<CT_PHIEUNHAPSACH> data = new ObservableCollection<CT_PHIEUNHAPSACH>(query);
-                            dataCT.ItemsSource = data;
-                        }
-                        else
-                        {
-                            var InsertRecord = MessageBox.Show("Bạn có chắc chắn muốn sửa phiếu nhập mã " + _phieu.SoPNS + " không?", "Thông Báo", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                            if (InsertRecord == MessageBoxResult.Yes)
+                         if (int.Parse(tbSoLuong.Text) <= 0 || int.Parse(tbDonGia.Text) <= 0)
                             {
-                                _chitiet.SoLuongNhap = Convert.ToInt32(tbSoLuong.Text);
-                                _chitiet.DonGiaNhap = Convert.ToInt32(tbDonGia.Text);
-                                _chitiet.ThanhTien = _chitiet.SoLuongNhap * _chitiet.DonGiaNhap;
+                                MessageBox.Show("Thông tin nhập không hợp lệ!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            }
+                            else if (int.Parse(tbSoLuong.Text) < soLuongNhapToiThieu)
+                            {
+                                MessageBox.Show("Cần nhập số lượng ít nhất là " + soLuongNhapToiThieu + " cuốn!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            }
+                            else
+                            {
+                                _chitiet = context.CT_PHIEUNHAPSACH.Find(_phieu.SoPNS, _sach.MaSach);
+                                if (_chitiet == null)
+                                {
+                                    _chitiet = new CT_PHIEUNHAPSACH();
+                                    _chitiet.SoPNS = _phieu.SoPNS;
+                                    _chitiet.SACH = dataBooks.SelectedItem as SACH;
+                                    _chitiet.MaSach = _chitiet.SACH.MaSach;
+                                    _chitiet.SoLuongNhap = Convert.ToInt32(tbSoLuong.Text);
+                                    _chitiet.DonGiaNhap = Convert.ToInt32(tbDonGia.Text);
+                                    _chitiet.ThanhTien = _chitiet.SoLuongNhap * _chitiet.DonGiaNhap;
 
-                                context.SaveChanges();
+                                    context.CT_PHIEUNHAPSACH.Add(_chitiet);
+                                    SACH sach = context.SACH.Find(_chitiet.MaSach);
+                                    sach.SoLuongTon += _chitiet.SoLuongNhap;
+                                    context.SaveChanges();
 
-                                var query = from b in context.CT_PHIEUNHAPSACH
-                                            where b.SoPNS.Equals(_phieu.SoPNS)
-                                            select b;
-                                ObservableCollection<CT_PHIEUNHAPSACH> data = new ObservableCollection<CT_PHIEUNHAPSACH>(query);
-                                dataCT.ItemsSource = data;
+                                    var query = from b in context.CT_PHIEUNHAPSACH
+                                                where b.SoPNS.Equals(_phieu.SoPNS)
+                                                select b;
+                                    ObservableCollection<CT_PHIEUNHAPSACH> data = new ObservableCollection<CT_PHIEUNHAPSACH>(query);
+                                    dataCT.ItemsSource = data;
+                                }
+                                else
+                                {
+                                    var InsertRecord = MessageBox.Show("Bạn có chắc chắn muốn sửa phiếu nhập mã " + _phieu.SoPNS + " không?", "Thông Báo", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                                    if (InsertRecord == MessageBoxResult.Yes)
+                                    {
+                                        SACH sach = context.SACH.Find(_chitiet.MaSach);
+                                        sach.SoLuongTon -= _chitiet.SoLuongNhap;
+                                        _chitiet.SoLuongNhap = Convert.ToInt32(tbSoLuong.Text);
+                                        _chitiet.DonGiaNhap = Convert.ToInt32(tbDonGia.Text);
+                                        _chitiet.ThanhTien = _chitiet.SoLuongNhap * _chitiet.DonGiaNhap;
+                                        sach.SoLuongTon += _chitiet.SoLuongNhap;
+                                        context.SaveChanges();
+
+                                        var query = from b in context.CT_PHIEUNHAPSACH
+                                                    where b.SoPNS.Equals(_phieu.SoPNS)
+                                                    select b;
+                                        ObservableCollection<CT_PHIEUNHAPSACH> data = new ObservableCollection<CT_PHIEUNHAPSACH>(query);
+                                        dataCT.ItemsSource = data;
+                                    }
+                                }
                             }
                         }
-                    }
+                        catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); }
+                    
                     
                 }
             }
@@ -310,17 +322,15 @@ namespace BookStore.View
             var DeleteRecord = MessageBox.Show("Bạn có chắc chắn muốn xóa sách " + item.SACH.TenSach + " vừa nhập không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (DeleteRecord == MessageBoxResult.Yes)
             {
-                if (context.CT_PHIEUNHAPSACH.Find(item.SoPNS) != null)
-                {
-                    //xóa chi tiết
-                    context.CT_PHIEUNHAPSACH.Remove(item);
-                    context.SaveChanges();
-                    var query = from b in context.CT_PHIEUNHAPSACH
-                                where b.SoPNS.Equals(_phieu.SoPNS)
-                                select b;
-                    ObservableCollection<CT_PHIEUNHAPSACH> data = new ObservableCollection<CT_PHIEUNHAPSACH>(query);
-                    dataCT.ItemsSource = data;
-                }
+                context.CT_PHIEUNHAPSACH.Remove(item);
+                SACH sach = context.SACH.Find(item.MaSach);
+                sach.SoLuongTon -= item.SoLuongNhap;
+                context.SaveChanges();
+                var query = from b in context.CT_PHIEUNHAPSACH
+                            where b.SoPNS.Equals(_phieu.SoPNS)
+                            select b;
+                ObservableCollection<CT_PHIEUNHAPSACH> data = new ObservableCollection<CT_PHIEUNHAPSACH>(query);
+                dataCT.ItemsSource = data;
             }
         }
 

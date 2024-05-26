@@ -101,24 +101,28 @@ namespace BookStore.View
                     var Confirm = MessageBox.Show("Bạn có chắc muốn thêm khách hàng " + tbTenKH.Text + " không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (Confirm == MessageBoxResult.Yes)
                     {
-                        var _find = Convert.ToInt32(tbMaKH.Text);
-                        if (context.KHACHHANG.Find(_find) == null)
+                        try
                         {
-                            _customer.MaKhachHang = Convert.ToInt32(tbMaKH.Text);
-                            _customer.SoTienNo = Convert.ToInt32(tbTienNo.Text);
+                            var _find = Convert.ToInt32(tbMaKH.Text);
+                            if (context.KHACHHANG.Find(_find) == null)
+                            {
+                                _customer.MaKhachHang = Convert.ToInt32(tbMaKH.Text);
+                                _customer.SoTienNo = Convert.ToInt32(tbTienNo.Text);
 
-                            _customer.TenKhachHang = tbTenKH.Text;
-                            _customer.DiaChi = tbDiaChi.Text;
-                            _customer.SDT = tbSDT.Text;
-                            _customer.Email = tbEmail.Text;
+                                _customer.TenKhachHang = tbTenKH.Text;
+                                _customer.DiaChi = tbDiaChi.Text;
+                                _customer.SDT = tbSDT.Text;
+                                _customer.Email = tbEmail.Text;
 
-                            context.KHACHHANG.Add(_customer);
-                            context.SaveChanges();
+                                context.KHACHHANG.Add(_customer);
+                                context.SaveChanges();
 
-                            dataCustomers.ItemsSource = getCustomers();
+                                dataCustomers.ItemsSource = getCustomers();
+                            }
+                            else
+                                MessageBox.Show("Mã khách hàng không được trùng!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                         }
-                        else
-                            MessageBox.Show("Mã khách hàng không được trùng!","Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); }
                     }
                 }
                 else
@@ -126,17 +130,21 @@ namespace BookStore.View
                     var Confirm = MessageBox.Show("Bạn có chắc muốn sửa khách hàng " + tbTenKH.Text + " không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (Confirm == MessageBoxResult.Yes)
                     {
-                        _customer = context.KHACHHANG.Find(Convert.ToInt32(tbMaKH.Text));
-                        _customer.SoTienNo = Convert.ToInt32(tbTienNo.Text);
+                        try
+                        {
+                            _customer = context.KHACHHANG.Find(Convert.ToInt32(tbMaKH.Text));
+                            _customer.SoTienNo = Convert.ToInt32(tbTienNo.Text);
 
-                        _customer.TenKhachHang = tbTenKH.Text;
-                        _customer.DiaChi = tbDiaChi.Text;
-                        _customer.SDT = tbSDT.Text;
-                        _customer.Email = tbEmail.Text;
+                            _customer.TenKhachHang = tbTenKH.Text;
+                            _customer.DiaChi = tbDiaChi.Text;
+                            _customer.SDT = tbSDT.Text;
+                            _customer.Email = tbEmail.Text;
 
-                        context.SaveChanges();
+                            context.SaveChanges();
 
-                        dataCustomers.ItemsSource = getCustomers();
+                            dataCustomers.ItemsSource = getCustomers();
+                        }
+                        catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); }
                     }
                 }
                 setMutable();

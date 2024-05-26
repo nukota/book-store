@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Collections.ObjectModel;
 using BookStore.Model;
-using System.Windows;
+using System.Linq;
+using System.Windows.Controls.Primitives;
 
 namespace BookStore.View
 {
@@ -51,6 +53,7 @@ namespace BookStore.View
             {
                 context.PHIEUTHUTIEN.Remove(item);
                 context.SaveChanges();
+                updateTienNo(item.MaKhachHang);
                 dataCash.ItemsSource = getCash();
             }
         }
@@ -81,7 +84,7 @@ namespace BookStore.View
 
                         context.PHIEUTHUTIEN.Add(_phieu);
                         context.SaveChanges();
-
+                        updateTienNo(_customer.MaKhachHang);
                         dataCash.ItemsSource = getCash();
 
                         MessageBox.Show("Thêm phiếu thu thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -109,5 +112,48 @@ namespace BookStore.View
 
         }
 
+        private void cbKhachHang_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var list = getCash();
+            int i = 1; bool kt = false;
+            foreach (PHIEUTHUTIEN c in list)
+            {
+                if (c.SoPT != i)
+                {
+                    tbMaPT.Text = i.ToString();
+                    kt = true;
+                    break;
+                }
+                i++;
+            }
+            if (!kt) tbMaPT.Text = i.ToString();
+        }
+        private void updateTienNo(int makhachhang)
+        {
+            int tienNo = 0;
+            var query = (from b in context.HOADON
+                         where makhachhang.Equals(b.MaKhachHang)
+                         select b).ToList();
+            foreach (HOADON hoadon in query)
+            {
+                var query1 = (from b in context.CT_HOADON
+                              where hoadon.SoHD.Equals(b.SoHD)
+                              select b).ToList();
+                foreach (CT_HOADON ct_hoadon in query1)
+                {
+                    tienNo += ct_hoadon.ThanhTien;
+                }
+            }
+            var query2 = (from b in context.PHIEUTHUTIEN
+                          where makhachhang.Equals(b.MaKhachHang)
+                          select b).ToList();
+            foreach (PHIEUTHUTIEN phieuthutien in query2)
+            {
+                tienNo -= phieuthutien.SoTienThu;
+            }
+            var khachhang = context.KHACHHANG.Find(makhachhang);
+            khachhang.SoTienNo = tienNo;
+            context.SaveChanges();
+        }
     }
 }

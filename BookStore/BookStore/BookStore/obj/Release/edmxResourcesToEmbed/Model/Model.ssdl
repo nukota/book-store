@@ -126,10 +126,10 @@
 warning 6002: The table/view 'QuanLySach.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="THAMSO">
     <Key>
+      <PropertyRef Name="ApDungQD4" />
       <PropertyRef Name="SoLuongNhapToiThieu" />
       <PropertyRef Name="SoLuongTonToiThieu" />
       <PropertyRef Name="SoLuongTonToiDa" />
-      <PropertyRef Name="ApDungQD4" />
     </Key>
     <Property Name="SoLuongNhapToiThieu" Type="int" Nullable="false" />
     <Property Name="SoLuongTonToiThieu" Type="int" Nullable="false" />

@@ -328,5 +328,14 @@
       <End Role="THELOAI" EntitySet="THELOAI" />
       <End Role="SACH" EntitySet="SACH" />
     </AssociationSet>
+    <EntitySet Name="TAIKHOAN" EntityType="Model.TAIKHOAN" />
   </EntityContainer>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="tentaikhoan" />
+    </Key>
+    <Property Name="tentaikhoan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="matkhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="loaitaikhoan" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>
