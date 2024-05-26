@@ -141,19 +141,6 @@
     <Property Name="TenTheLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="SACH" Relationship="Self.FK_SACH_THELOAI" FromRole="THELOAI" ToRole="SACH" />
   </EntityType>
-  <EntityType Name="THAMSO">
-    <Key>
-      <PropertyRef Name="SoLuongNhapToiThieu" />
-      <PropertyRef Name="SoLuongTonToiThieu" />
-      <PropertyRef Name="SoLuongTonToiDa" />
-      <PropertyRef Name="ApDungQD4" />
-    </Key>
-    <Property Name="SoLuongNhapToiThieu" Type="Int32" Nullable="false" />
-    <Property Name="SoLuongTonToiThieu" Type="Int32" Nullable="false" />
-    <Property Name="SoLuongTonToiDa" Type="Int32" Nullable="false" />
-    <Property Name="SoTienNoToiDa" Type="Int32" />
-    <Property Name="ApDungQD4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
   <Association Name="FK_BAOCAOCONGNO_KHACHHANG">
     <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
     <End Role="BAOCAOCONGNO" Type="Self.BAOCAOCONGNO" Multiplicity="*" />
@@ -287,7 +274,6 @@
     <EntitySet Name="SACH" EntityType="Self.SACH" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="THELOAI" EntityType="Self.THELOAI" />
-    <EntitySet Name="THAMSO" EntityType="Self.THAMSO" />
     <AssociationSet Name="FK_BAOCAOCONGNO_KHACHHANG" Association="Self.FK_BAOCAOCONGNO_KHACHHANG">
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
       <End Role="BAOCAOCONGNO" EntitySet="BAOCAOCONGNO" />
@@ -329,6 +315,7 @@
       <End Role="SACH" EntitySet="SACH" />
     </AssociationSet>
     <EntitySet Name="TAIKHOAN" EntityType="Model.TAIKHOAN" />
+    <EntitySet Name="THAMSO" EntityType="Model.THAMSO" />
   </EntityContainer>
   <EntityType Name="TAIKHOAN">
     <Key>
@@ -337,5 +324,15 @@
     <Property Name="tentaikhoan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="matkhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="loaitaikhoan" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="THAMSO">
+    <Key>
+      <PropertyRef Name="ApDungQD4" />
+    </Key>
+    <Property Name="SoLuongNhapToiThieu" Type="Int32" />
+    <Property Name="SoLuongTonToiThieu" Type="Int32" />
+    <Property Name="SoLuongTonToiDa" Type="Int32" />
+    <Property Name="SoTienNoToiDa" Type="Int32" />
+    <Property Name="ApDungQD4" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

@@ -128,23 +128,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="THAMSO">
-      <EntityTypeMapping TypeName="Model.THAMSO">
-        <MappingFragment StoreEntitySet="THAMSO">
-          <ScalarProperty Name="SoLuongNhapToiThieu" ColumnName="SoLuongNhapToiThieu" />
-          <ScalarProperty Name="SoLuongTonToiThieu" ColumnName="SoLuongTonToiThieu" />
-          <ScalarProperty Name="SoLuongTonToiDa" ColumnName="SoLuongTonToiDa" />
-          <ScalarProperty Name="SoTienNoToiDa" ColumnName="SoTienNoToiDa" />
-          <ScalarProperty Name="ApDungQD4" ColumnName="ApDungQD4" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TAIKHOAN">
       <EntityTypeMapping TypeName="Model.TAIKHOAN">
         <MappingFragment StoreEntitySet="TAIKHOAN">
           <ScalarProperty Name="loaitaikhoan" ColumnName="loaitaikhoan" />
           <ScalarProperty Name="matkhau" ColumnName="matkhau" />
           <ScalarProperty Name="tentaikhoan" ColumnName="tentaikhoan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THAMSO">
+      <EntityTypeMapping TypeName="Model.THAMSO">
+        <MappingFragment StoreEntitySet="THAMSO">
+          <ScalarProperty Name="ApDungQD4" ColumnName="ApDungQD4" />
+          <ScalarProperty Name="SoTienNoToiDa" ColumnName="SoTienNoToiDa" />
+          <ScalarProperty Name="SoLuongTonToiDa" ColumnName="SoLuongTonToiDa" />
+          <ScalarProperty Name="SoLuongTonToiThieu" ColumnName="SoLuongTonToiThieu" />
+          <ScalarProperty Name="SoLuongNhapToiThieu" ColumnName="SoLuongNhapToiThieu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

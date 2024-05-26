@@ -39,8 +39,8 @@ namespace BookStore.View
         private void thamSo()
         {
             ObservableCollection<THAMSO> _thamso = new ObservableCollection<THAMSO>(context.THAMSO);
-            soLuongTonToiDa = _thamso[0].SoLuongTonToiDa;
-            soLuongNhapToiThieu = _thamso[0].SoLuongNhapToiThieu;
+            soLuongTonToiDa = Convert.ToInt32(_thamso[0].SoLuongTonToiDa);
+            soLuongNhapToiThieu = Convert.ToInt32(_thamso[0].SoLuongNhapToiThieu);
         }
 
         private ObservableCollection<PHIEUNHAPSACH> getPhieuNhap()

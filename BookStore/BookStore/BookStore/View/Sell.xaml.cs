@@ -26,8 +26,8 @@ namespace BookStore.View
         private void thamSo()
         {
             ObservableCollection<THAMSO> _thamso = new ObservableCollection<THAMSO>(context.THAMSO);
-            soLuongTonToiThieu = _thamso[0].SoLuongTonToiThieu;
-            soTienNoToiDa = int.Parse(_thamso[0].SoTienNoToiDa.ToString());
+            soLuongTonToiThieu = Convert.ToInt32(_thamso[0].SoLuongTonToiThieu);
+            soTienNoToiDa = Convert.ToInt32(_thamso[0].SoTienNoToiDa.ToString());
         }
 
         #region ISwitchable Member

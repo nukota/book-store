@@ -51,15 +51,27 @@ namespace BookStore.View
                 MessageBox.Show("Không được để trống quy định nào!","Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
             {
-                var _thamso = (from b in context.THAMSO
-                               select b).FirstOrDefault();
-                _thamso.SoLuongNhapToiThieu = Convert.ToInt32(tbQD1.Text);
-                _thamso.SoLuongTonToiThieu = Convert.ToInt32(tbQD2.Text);
-                _thamso.SoLuongTonToiDa = Convert.ToInt32(tbQD3.Text);
-                _thamso.SoTienNoToiDa = Convert.ToInt32(tbQD4.Text);
-                //_thamso.ApDungQD4 = "Tùy chỉnh";
-                context.SaveChanges();
-                MessageBox.Show("Thay đổi quy định thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                try
+                {
+                    if (int.Parse(tbQD1.Text) < 0 || int.Parse(tbQD2.Text) < 0 || int.Parse(tbQD3.Text) < 0 || int.Parse(tbQD4.Text) < 0)
+                    {
+                        MessageBox.Show("Thông tin nhập không hợp lệ!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    else
+                    {
+                        var _thamso = (from b in context.THAMSO
+                                       select b).FirstOrDefault();
+                        _thamso.SoLuongNhapToiThieu = Convert.ToInt32(tbQD1.Text);
+                        _thamso.SoLuongTonToiThieu = Convert.ToInt32(tbQD2.Text);
+                        _thamso.SoLuongTonToiDa = Convert.ToInt32(tbQD3.Text);
+                        _thamso.SoTienNoToiDa = Convert.ToInt32(tbQD4.Text);
+                        //_thamso.ApDungQD4 = "Tùy chỉnh";
+                        context.SaveChanges();
+                        MessageBox.Show("Thay đổi quy định thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    
+                }
+                catch { MessageBox.Show("Thông tin nhập không hợp lệ!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning); }
             }
         }
 
@@ -71,7 +83,7 @@ namespace BookStore.View
             _thamso[0].SoLuongTonToiThieu = 20;
             _thamso[0].SoLuongTonToiDa = 300;
             context.SaveChanges();
-            MessageBox.Show("Thay đổi các quy định về mặc định", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            Load();
         }
     }
 }
