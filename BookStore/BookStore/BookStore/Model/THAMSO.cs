@@ -14,9 +14,9 @@ namespace BookStore.Model
     
     public partial class THAMSO
     {
-        public int SoLuongNhapToiThieu { get; set; }
-        public int SoLuongTonToiThieu { get; set; }
-        public int SoLuongTonToiDa { get; set; }
+        public Nullable<int> SoLuongNhapToiThieu { get; set; }
+        public Nullable<int> SoLuongTonToiThieu { get; set; }
+        public Nullable<int> SoLuongTonToiDa { get; set; }
         public Nullable<int> SoTienNoToiDa { get; set; }
         public string ApDungQD4 { get; set; }
     }

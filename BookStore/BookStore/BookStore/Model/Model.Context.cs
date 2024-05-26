@@ -37,7 +37,7 @@ namespace BookStore.Model
         public virtual DbSet<SACH> SACH { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<THELOAI> THELOAI { get; set; }
-        public virtual DbSet<THAMSO> THAMSO { get; set; }
         public virtual DbSet<TAIKHOAN> TAIKHOAN { get; set; }
+        public virtual DbSet<THAMSO> THAMSO { get; set; }
     }
 }

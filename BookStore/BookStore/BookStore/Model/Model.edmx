@@ -127,18 +127,13 @@
           <Property Name="matkhau" Type="varchar" MaxLength="20" />
           <Property Name="loaitaikhoan" Type="varchar" MaxLength="5" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'QuanLySach.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="THAMSO">
           <Key>
             <PropertyRef Name="ApDungQD4" />
-            <PropertyRef Name="SoLuongNhapToiThieu" />
-            <PropertyRef Name="SoLuongTonToiThieu" />
-            <PropertyRef Name="SoLuongTonToiDa" />
           </Key>
-          <Property Name="SoLuongNhapToiThieu" Type="int" Nullable="false" />
-          <Property Name="SoLuongTonToiThieu" Type="int" Nullable="false" />
-          <Property Name="SoLuongTonToiDa" Type="int" Nullable="false" />
+          <Property Name="SoLuongNhapToiThieu" Type="int" />
+          <Property Name="SoLuongTonToiThieu" Type="int" />
+          <Property Name="SoLuongTonToiDa" Type="int" />
           <Property Name="SoTienNoToiDa" Type="int" />
           <Property Name="ApDungQD4" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -282,16 +277,8 @@ warning 6002: The table/view 'QuanLySach.dbo.THAMSO' does not have a primary key
           <EntitySet Name="SACH" EntityType="Self.SACH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THAMSO" EntityType="Self.THAMSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THELOAI" EntityType="Self.THELOAI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="THAMSO" EntityType="Self.THAMSO" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [THAMSO].[SoLuongNhapToiThieu] AS [SoLuongNhapToiThieu], 
-    [THAMSO].[SoLuongTonToiThieu] AS [SoLuongTonToiThieu], 
-    [THAMSO].[SoLuongTonToiDa] AS [SoLuongTonToiDa], 
-    [THAMSO].[SoTienNoToiDa] AS [SoTienNoToiDa], 
-    [THAMSO].[ApDungQD4] AS [ApDungQD4]
-    FROM [dbo].[THAMSO] AS [THAMSO]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_BAOCAOCONGNO_KHACHHANG" Association="Self.FK_BAOCAOCONGNO_KHACHHANG">
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
             <End Role="BAOCAOCONGNO" EntitySet="BAOCAOCONGNO" />
@@ -478,19 +465,6 @@ warning 6002: The table/view 'QuanLySach.dbo.THAMSO' does not have a primary key
           <Property Name="TenTheLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="SACH" Relationship="Self.FK_SACH_THELOAI" FromRole="THELOAI" ToRole="SACH" />
         </EntityType>
-        <EntityType Name="THAMSO">
-          <Key>
-            <PropertyRef Name="SoLuongNhapToiThieu" />
-            <PropertyRef Name="SoLuongTonToiThieu" />
-            <PropertyRef Name="SoLuongTonToiDa" />
-            <PropertyRef Name="ApDungQD4" />
-          </Key>
-          <Property Name="SoLuongNhapToiThieu" Type="Int32" Nullable="false" />
-          <Property Name="SoLuongTonToiThieu" Type="Int32" Nullable="false" />
-          <Property Name="SoLuongTonToiDa" Type="Int32" Nullable="false" />
-          <Property Name="SoTienNoToiDa" Type="Int32" />
-          <Property Name="ApDungQD4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
         <Association Name="FK_BAOCAOCONGNO_KHACHHANG">
           <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
           <End Role="BAOCAOCONGNO" Type="Self.BAOCAOCONGNO" Multiplicity="*" />
@@ -624,7 +598,6 @@ warning 6002: The table/view 'QuanLySach.dbo.THAMSO' does not have a primary key
           <EntitySet Name="SACH" EntityType="Self.SACH" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="THELOAI" EntityType="Self.THELOAI" />
-          <EntitySet Name="THAMSO" EntityType="Self.THAMSO" />
           <AssociationSet Name="FK_BAOCAOCONGNO_KHACHHANG" Association="Self.FK_BAOCAOCONGNO_KHACHHANG">
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
             <End Role="BAOCAOCONGNO" EntitySet="BAOCAOCONGNO" />
@@ -666,6 +639,7 @@ warning 6002: The table/view 'QuanLySach.dbo.THAMSO' does not have a primary key
             <End Role="SACH" EntitySet="SACH" />
           </AssociationSet>
           <EntitySet Name="TAIKHOAN" EntityType="Model.TAIKHOAN" />
+          <EntitySet Name="THAMSO" EntityType="Model.THAMSO" />
         </EntityContainer>
         <EntityType Name="TAIKHOAN">
           <Key>
@@ -674,6 +648,16 @@ warning 6002: The table/view 'QuanLySach.dbo.THAMSO' does not have a primary key
           <Property Name="tentaikhoan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="matkhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="loaitaikhoan" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="THAMSO">
+          <Key>
+            <PropertyRef Name="ApDungQD4" />
+          </Key>
+          <Property Name="SoLuongNhapToiThieu" Type="Int32" />
+          <Property Name="SoLuongTonToiThieu" Type="Int32" />
+          <Property Name="SoLuongTonToiDa" Type="Int32" />
+          <Property Name="SoTienNoToiDa" Type="Int32" />
+          <Property Name="ApDungQD4" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -808,23 +792,23 @@ warning 6002: The table/view 'QuanLySach.dbo.THAMSO' does not have a primary key
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="THAMSO">
-            <EntityTypeMapping TypeName="Model.THAMSO">
-              <MappingFragment StoreEntitySet="THAMSO">
-                <ScalarProperty Name="SoLuongNhapToiThieu" ColumnName="SoLuongNhapToiThieu" />
-                <ScalarProperty Name="SoLuongTonToiThieu" ColumnName="SoLuongTonToiThieu" />
-                <ScalarProperty Name="SoLuongTonToiDa" ColumnName="SoLuongTonToiDa" />
-                <ScalarProperty Name="SoTienNoToiDa" ColumnName="SoTienNoToiDa" />
-                <ScalarProperty Name="ApDungQD4" ColumnName="ApDungQD4" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TAIKHOAN">
             <EntityTypeMapping TypeName="Model.TAIKHOAN">
               <MappingFragment StoreEntitySet="TAIKHOAN">
                 <ScalarProperty Name="loaitaikhoan" ColumnName="loaitaikhoan" />
                 <ScalarProperty Name="matkhau" ColumnName="matkhau" />
                 <ScalarProperty Name="tentaikhoan" ColumnName="tentaikhoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THAMSO">
+            <EntityTypeMapping TypeName="Model.THAMSO">
+              <MappingFragment StoreEntitySet="THAMSO">
+                <ScalarProperty Name="ApDungQD4" ColumnName="ApDungQD4" />
+                <ScalarProperty Name="SoTienNoToiDa" ColumnName="SoTienNoToiDa" />
+                <ScalarProperty Name="SoLuongTonToiDa" ColumnName="SoLuongTonToiDa" />
+                <ScalarProperty Name="SoLuongTonToiThieu" ColumnName="SoLuongTonToiThieu" />
+                <ScalarProperty Name="SoLuongNhapToiThieu" ColumnName="SoLuongNhapToiThieu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
