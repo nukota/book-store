@@ -34,24 +34,24 @@
 
             <TextBlock Grid.Row="1" FontSize="15" Margin="120,10,0,0">Số lượng nhập ít nhất</TextBlock>
             <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1.5" CornerRadius="15" Margin="300,0,0,0" Width="350" Height="35">
-                <TextBox x:Name="tbQD1"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Height="37"/>
+                <TextBox x:Name="tbQD1"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Height="37" FontSize="15"/>
             </Border>
 
             <TextBlock Grid.Row="2" FontSize="15" Margin="120,10,0,0">Lượng tồn tối đa trước khi nhập</TextBlock>
             <Border Grid.Row="2" BorderBrush="Black" BorderThickness="1.5" CornerRadius="15" Margin="300,0,0,0" Width="350" Height="35">
-                <TextBox x:Name="tbQD3"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Height="37"/>
+                <TextBox x:Name="tbQD3"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Height="37" FontSize="15"/>
             </Border>
 
             <TextBlock Grid.Row="3" FontSize="16" FontWeight="Bold" Margin="111,20,0,0">Quy định 2</TextBlock>
 
             <TextBlock Grid.Row="4" FontSize="15" Margin="120,10,0,0">Tiền nợ tối đa</TextBlock>
             <Border Grid.Row="4" BorderBrush="Black" BorderThickness="1.5" CornerRadius="15" Margin="300,0,0,0" Width="350" Height="35">
-                <TextBox x:Name="tbQD4"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Height="37"/>
+                <TextBox x:Name="tbQD4"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Height="37" FontSize="15"/>
             </Border>
 
             <TextBlock Grid.Row="5" FontSize="15" Margin="120,10,0,0">Lượng tồn tối thiểu sau khi bán</TextBlock>
             <Border Grid.Row="5" BorderBrush="Black" BorderThickness="1.5" CornerRadius="15" Margin="300,0,0,0" Width="350" Height="35">
-                <TextBox x:Name="tbQD2"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Height="37"/>
+                <TextBox x:Name="tbQD2"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Height="37" FontSize="15"/>
             </Border>
 
             <TextBlock Grid.Row="6" FontSize="16" FontWeight="Bold" Margin="111,20,0,0">Quy định 3</TextBlock>
@@ -80,9 +80,6 @@
                 </Border>
             </StackPanel>
             
-
-            <Image HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 -200 0" Height="500" Width="500" Source="\Resources\settings.png" Panel.ZIndex="-1" Opacity="0.1" Grid.RowSpan="3"/>
-
         </Grid>
     </Grid>
 </UserControl>

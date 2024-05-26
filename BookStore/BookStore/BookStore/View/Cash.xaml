@@ -38,7 +38,7 @@
                       ItemsSource="{Binding}"
                       FontSize="11"
                       IsReadOnly="True" Height="34" 
-                      VerticalAlignment="Center"/>
+                      VerticalAlignment="Center" SelectionChanged="cbKhachHang_SelectionChanged"/>
             </Border>
 
             <TextBlock Margin="45,30,0,0" Grid.Column="1" FontSize="15">Tiền Nợ</TextBlock>

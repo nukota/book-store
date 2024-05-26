@@ -17,6 +17,17 @@ namespace BookStore.View
         {
             InitializeComponent();
             dataHoaDon.IsEnabled = true;
+            thamSo();
+        }
+        QuanLySachEntities context = new QuanLySachEntities();
+
+        int soLuongTonToiThieu;
+        int soTienNoToiDa;
+        private void thamSo()
+        {
+            ObservableCollection<THAMSO> _thamso = new ObservableCollection<THAMSO>(context.THAMSO);
+            soLuongTonToiThieu = _thamso[0].SoLuongTonToiThieu;
+            soTienNoToiDa = int.Parse(_thamso[0].SoTienNoToiDa.ToString());
         }
 
         #region ISwitchable Member
@@ -30,7 +41,6 @@ namespace BookStore.View
 
         #region DataContext
 
-        QuanLySachEntities context = new QuanLySachEntities();
 
         private ObservableCollection<HOADON> getHoaDon()
         {
@@ -110,9 +120,19 @@ namespace BookStore.View
             } 
             else
             {
-                SellReceipt wd = new SellReceipt(cbKhachHang.Text);
-                Application.Current.MainWindow = wd;
-                wd.ShowDialog();
+                int soNo = Convert.ToInt32((from b in context.KHACHHANG
+                                            where b.TenKhachHang.Equals(cbKhachHang.Text)
+                                            select b.SoTienNo).FirstOrDefault());
+                if (soNo > soTienNoToiDa)
+                {
+                    MessageBox.Show(cbKhachHang.Text + " đã vượt quá số tiền nợ tối đa (" + soNo + "/" + soTienNoToiDa + ")!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else
+                {
+                    SellReceipt wd = new SellReceipt(cbKhachHang.Text);
+                    Application.Current.MainWindow = wd;
+                    wd.ShowDialog();
+                }
             }
             
         }
@@ -151,7 +171,7 @@ namespace BookStore.View
                 context.SaveChanges();
                 dataHoaDon.ItemsSource = getHoaDon();
                 updateBaoCaoCongNo(selected);
-                MessageBox.Show("Số tiền cần thanh toán là " + _sum, "Vui lòng Thanh Toán!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                updateTienNo(selected.MaKhachHang);
             }
             else dataHoaDon.ItemsSource = getHoaDon();
 
@@ -228,49 +248,66 @@ namespace BookStore.View
                 {
                     MessageBox.Show("Hãy nhập số lượng và đơn giá", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
-                else
+                else try
                 {
-                    _chitiet = new CT_HOADON();
-                    var _sach = dataBooks.SelectedItem as SACH;
-                    _chitiet = context.CT_HOADON.Find(_sach.MaSach, _hoadon.SoHD);
-                    if (_chitiet == null)
+                    if (int.Parse(tbDonGia.Text) > 0 && int.Parse(tbSoLuong.Text) > 0)
                     {
                         _chitiet = new CT_HOADON();
-                        _chitiet.SoHD = _hoadon.SoHD;
-                        _chitiet.SACH = _sach;
-                        _chitiet.MaSach = _sach.MaSach;
-                        _chitiet.SoLuong = Convert.ToInt32(tbSoLuong.Text);
-                        _chitiet.DonGia = Convert.ToInt32(tbDonGia.Text);
-                        _chitiet.ThanhTien = _chitiet.SoLuong * _chitiet.DonGia;
-
-                        context.CT_HOADON.Add(_chitiet);
-                        context.SaveChanges();
-
-                        var query = from b in context.CT_HOADON
-                                    where b.SoHD.Equals(_hoadon.SoHD)
-                                    select b;
-                        ObservableCollection<CT_HOADON> data = new ObservableCollection<CT_HOADON>(query);
-                        dataCT.ItemsSource = data;
-                    }
-                    else
-                    {
-                        var InsertRecord = MessageBox.Show("Bạn có chắc chắn muốn sửa hóa đơn mã " + _hoadon.SoHD + " không?", "Thông Báo", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (InsertRecord == MessageBoxResult.Yes)
+                        var _sach = dataBooks.SelectedItem as SACH;
+                        if (Convert.ToInt32(tbSoLuong.Text) > _sach.SoLuongTon - soLuongTonToiThieu)
                         {
-                            _chitiet.SoLuong = Convert.ToInt32(tbSoLuong.Text);
-                            _chitiet.DonGia = Convert.ToInt32(tbDonGia.Text);
-                            _chitiet.ThanhTien = _chitiet.SoLuong * _chitiet.DonGia;
+                            MessageBox.Show("Không đủ số lượng sách để bán (số lượng tồn tối thiểu: " + soLuongTonToiThieu + " cuốn)!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            _chitiet = context.CT_HOADON.Find(_sach.MaSach, _hoadon.SoHD);
+                            if (_chitiet == null)
+                            {
+                                _chitiet = new CT_HOADON();
+                                _chitiet.SoHD = _hoadon.SoHD;
+                                _chitiet.SACH = _sach;
+                                _chitiet.MaSach = _sach.MaSach;
+                                _chitiet.SoLuong = Convert.ToInt32(tbSoLuong.Text);
+                                _chitiet.DonGia = Convert.ToInt32(tbDonGia.Text);
+                                _chitiet.ThanhTien = _chitiet.SoLuong * _chitiet.DonGia;
 
-                            context.SaveChanges();
+                                context.CT_HOADON.Add(_chitiet);
+                                _sach.SoLuongTon -= Convert.ToInt32(tbSoLuong.Text);
+                                context.SaveChanges();
 
-                            var query = from b in context.CT_HOADON
-                                        where b.SoHD.Equals(_hoadon.SoHD)
-                                        select b;
-                            ObservableCollection<CT_HOADON> data = new ObservableCollection<CT_HOADON>(query);
-                            dataCT.ItemsSource = data;
+                                var query = from b in context.CT_HOADON
+                                            where b.SoHD.Equals(_hoadon.SoHD)
+                                            select b;
+                                ObservableCollection<CT_HOADON> data = new ObservableCollection<CT_HOADON>(query);
+                                dataCT.ItemsSource = data;
+                                btnSave(sender, e);
+                            }
+                            else
+                            {
+                                var InsertRecord = MessageBox.Show("Bạn có chắc chắn muốn sửa hóa đơn mã " + _hoadon.SoHD + " không?", "Thông Báo", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                                if (InsertRecord == MessageBoxResult.Yes)
+                                {
+                                    _sach.SoLuongTon += _chitiet.SoLuong;
+                                    _chitiet.SoLuong = Convert.ToInt32(tbSoLuong.Text);
+                                    _chitiet.DonGia = Convert.ToInt32(tbDonGia.Text);
+                                    _chitiet.ThanhTien = _chitiet.SoLuong * _chitiet.DonGia;
+
+                                    _sach.SoLuongTon -= Convert.ToInt32(tbSoLuong.Text);
+                                    context.SaveChanges();
+
+                                    var query = from b in context.CT_HOADON
+                                                where b.SoHD.Equals(_hoadon.SoHD)
+                                                select b;
+                                    ObservableCollection<CT_HOADON> data = new ObservableCollection<CT_HOADON>(query);
+                                    dataCT.ItemsSource = data;
+                                    btnSave(sender, e);
+                                }
+                            }
                         }
                     }
+                    else { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); }
                 }
+                catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); }
             }
         }
 
@@ -281,17 +318,16 @@ namespace BookStore.View
             var DeleteRecord = MessageBox.Show("Bạn có chắc chắn muốn xóa sách " + item.SACH.TenSach + " vừa nhập không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (DeleteRecord == MessageBoxResult.Yes)
             {
-                if (context.CT_HOADON.Find(item.SoHD) != null)
-                {
-                    //xóa chi tiết
-                    context.CT_HOADON.Remove(item);
-                    context.SaveChanges();
-                    var query = from b in context.CT_HOADON
-                                where b.SoHD.Equals(_hoadon.SoHD)
-                                select b;
-                    ObservableCollection<CT_HOADON> data = new ObservableCollection<CT_HOADON>(query);
-                    dataCT.ItemsSource = data;
-                }
+                SACH sach = context.SACH.Find(item.MaSach);
+                sach.SoLuongTon -= item.SoLuong;
+                context.CT_HOADON.Remove(item);
+                context.SaveChanges();
+                var query = from b in context.CT_HOADON
+                            where b.SoHD.Equals(_hoadon.SoHD)
+                            select b;
+                ObservableCollection<CT_HOADON> data = new ObservableCollection<CT_HOADON>(query);
+                dataCT.ItemsSource = data;
+                btnSave(sender, e);
             }
         }
 
@@ -333,8 +369,6 @@ namespace BookStore.View
             }
             else
             {
-                baoCaoCongNo.Thang = DateTime.Now.Month;
-                baoCaoCongNo.Nam = DateTime.Now.Year;
                 if (hoadon.ThanhToan != null)
                 {
                     baoCaoCongNo.NoCuoi += int.Parse(hoadon.ThanhToan.ToString());
@@ -342,6 +376,33 @@ namespace BookStore.View
                 }
                 context.SaveChanges();
             }
+        }
+        private void updateTienNo(int makhachhang)
+        {
+            int tienNo = 0;
+            var query = (from b in context.HOADON
+                         where makhachhang.Equals(b.MaKhachHang)
+                         select b).ToList();
+            foreach (HOADON hoadon in query)
+            {
+                var query1 = (from b in context.CT_HOADON
+                              where hoadon.SoHD.Equals(b.SoHD) 
+                              select b).ToList();
+                foreach (CT_HOADON ct_hoadon in query1)
+                {
+                    tienNo += ct_hoadon.ThanhTien;
+                }
+            }
+            var query2 = (from b in context.PHIEUTHUTIEN
+                          where makhachhang.Equals(b.MaKhachHang)
+                          select b).ToList();
+            foreach (PHIEUTHUTIEN phieuthutien in query2)
+            {
+                tienNo -= phieuthutien.SoTienThu;
+            }
+            var khachhang = context.KHACHHANG.Find(makhachhang);
+            khachhang.SoTienNo = tienNo;
+            context.SaveChanges();
         }
     }
 }

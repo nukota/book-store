@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Collections.ObjectModel;
 using BookStore.Model;
+using System.Linq;
+using System.Windows.Controls.Primitives;
 
 namespace BookStore.View
 {
@@ -11,6 +14,7 @@ namespace BookStore.View
         public Setting()
         {
             InitializeComponent();
+            Load();
         }
 
         #region ISwitchable Member
@@ -23,7 +27,14 @@ namespace BookStore.View
         #endregion
 
         QuanLySachEntities context = new QuanLySachEntities();
-
+        private void Load()
+        {
+            ObservableCollection<THAMSO> _thamso = new ObservableCollection<THAMSO>(context.THAMSO);
+            tbQD2.Text = _thamso[0].SoLuongTonToiThieu.ToString();
+            tbQD4.Text = _thamso[0].SoTienNoToiDa.ToString();
+            tbQD3.Text = _thamso[0].SoLuongTonToiDa.ToString();
+            tbQD1.Text = _thamso[0].SoLuongNhapToiThieu.ToString();
+        }
         private bool isNull()
         {
             if (!String.IsNullOrEmpty(tbQD1.Text)
@@ -40,13 +51,13 @@ namespace BookStore.View
                 MessageBox.Show("Không được để trống quy định nào!","Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
             {
-                THAMSO _add = new THAMSO();
-                _add.SoLuongNhapToiThieu = Convert.ToInt32(tbQD1.Text);
-                _add.SoLuongTonToiThieu = Convert.ToInt32(tbQD2.Text);
-                _add.SoLuongTonToiDa = Convert.ToInt32(tbQD3.Text);
-                _add.SoTienNoToiDa = Convert.ToInt32(tbQD4.Text);
-                _add.ApDungQD4 = "Tùy chỉnh";
-                context.THAMSO.Attach(_add);
+                var _thamso = (from b in context.THAMSO
+                               select b).FirstOrDefault();
+                _thamso.SoLuongNhapToiThieu = Convert.ToInt32(tbQD1.Text);
+                _thamso.SoLuongTonToiThieu = Convert.ToInt32(tbQD2.Text);
+                _thamso.SoLuongTonToiDa = Convert.ToInt32(tbQD3.Text);
+                _thamso.SoTienNoToiDa = Convert.ToInt32(tbQD4.Text);
+                //_thamso.ApDungQD4 = "Tùy chỉnh";
                 context.SaveChanges();
                 MessageBox.Show("Thay đổi quy định thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -54,6 +65,12 @@ namespace BookStore.View
 
         private void btnDefault(object sender, RoutedEventArgs e)
         {
+            ObservableCollection<THAMSO> _thamso = new ObservableCollection<THAMSO>(context.THAMSO);
+            _thamso[0].SoTienNoToiDa = 1000000;
+            _thamso[0].SoLuongNhapToiThieu = 150;
+            _thamso[0].SoLuongTonToiThieu = 20;
+            _thamso[0].SoLuongTonToiDa = 300;
+            context.SaveChanges();
             MessageBox.Show("Thay đổi các quy định về mặc định", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
