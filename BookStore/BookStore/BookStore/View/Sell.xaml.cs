@@ -261,7 +261,9 @@ namespace BookStore.View
                         else
                         {
                             _chitiet = context.CT_HOADON.Find(_sach.MaSach, _hoadon.SoHD);
-                            if (_chitiet == null)
+                            var khachhang = context.KHACHHANG.Find(_hoadon.MaKhachHang);
+                            int thanhtien = Convert.ToInt32(tbSoLuong.Text) * Convert.ToInt32(tbDonGia.Text);
+                            if (_chitiet == null && thanhtien + khachhang.SoTienNo <= soTienNoToiDa)
                             {
                                 _chitiet = new CT_HOADON();
                                 _chitiet.SoHD = _hoadon.SoHD;
@@ -282,7 +284,7 @@ namespace BookStore.View
                                 dataCT.ItemsSource = data;
                                 btnSave(sender, e);
                             }
-                            else
+                            else if (thanhtien + khachhang.SoTienNo <= soTienNoToiDa)
                             {
                                 var InsertRecord = MessageBox.Show("Bạn có chắc chắn muốn sửa hóa đơn mã " + _hoadon.SoHD + " không?", "Thông Báo", MessageBoxButton.YesNo, MessageBoxImage.Question);
                                 if (InsertRecord == MessageBoxResult.Yes)
@@ -303,6 +305,7 @@ namespace BookStore.View
                                     btnSave(sender, e);
                                 }
                             }
+                            else { MessageBox.Show("Vượt số tiền nợ tối đa (" + (thanhtien + khachhang.SoTienNo) + "/" + soTienNoToiDa + ")!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); }
                         }
                     }
                     else { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); }
@@ -371,8 +374,8 @@ namespace BookStore.View
             {
                 if (hoadon.ThanhToan != null)
                 {
-                    baoCaoCongNo.NoCuoi += int.Parse(hoadon.ThanhToan.ToString());
-                    baoCaoCongNo.PhatSinh = baoCaoCongNo.NoCuoi - baoCaoCongNo.NoDau;
+                    baoCaoCongNo.NoCuoi += Convert.ToInt32(hoadon.ThanhToan);
+                    baoCaoCongNo.PhatSinh += Convert.ToInt32(hoadon.ThanhToan);
                 }
                 context.SaveChanges();
             }

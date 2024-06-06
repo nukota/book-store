@@ -55,9 +55,13 @@ namespace BookStore.View
         }
 
         #endregion
-
+        int soLuongTonToiDa;
         /// Set textbox Enabled
-
+        private void Load()
+        {
+            ObservableCollection<THAMSO> _thamso = new ObservableCollection<THAMSO>(context.THAMSO);
+            soLuongTonToiDa = Convert.ToInt32(_thamso[0].SoLuongTonToiDa);
+        }
         private void setEnabled()
         {
             tbTenSach.IsEnabled = true;
@@ -132,6 +136,7 @@ namespace BookStore.View
             SACH _sach = new SACH();
             if (!isNull())
             {
+                int chenhlech = 0;
                 bool kt = true;
                 if (tbMaSach.IsEnabled)
                 {
@@ -140,29 +145,31 @@ namespace BookStore.View
                     {
                         try
                         {
-                            var _find = Convert.ToInt32(tbMaSach.Text);
-                            if (context.SACH.Find(_find) == null)
-                            {
-                                _sach.MaSach = Convert.ToInt32(tbMaSach.Text);
+                            
+                                var _find = Convert.ToInt32(tbMaSach.Text);
+                                if (context.SACH.Find(_find) == null)
+                                {
+                                    _sach.MaSach = Convert.ToInt32(tbMaSach.Text);
 
-                                _sach.TenSach = tbTenSach.Text;
-                                _sach.TacGia = tbTacGia.Text;
+                                    _sach.TenSach = tbTenSach.Text;
+                                    _sach.TacGia = tbTacGia.Text;
 
-                                _sach.THELOAI = cbTheLoai.SelectedValue as THELOAI;
-                                _sach.NHAXUATBAN = cbNhaXuatBan.SelectedValue as NHAXUATBAN;
+                                    _sach.THELOAI = cbTheLoai.SelectedValue as THELOAI;
+                                    _sach.NHAXUATBAN = cbNhaXuatBan.SelectedValue as NHAXUATBAN;
 
-                                _sach.GiaBan = Convert.ToInt32(tbGiaBan.Text);
-                                _sach.SoLuongTon = Convert.ToInt32(tbSoLuongTon.Text);
+                                    _sach.GiaBan = Convert.ToInt32(tbGiaBan.Text);
+                                    _sach.SoLuongTon = Convert.ToInt32(tbSoLuongTon.Text);
 
-                                context.SACH.Add(_sach);
-                                context.SaveChanges();
+                                    context.SACH.Add(_sach);
+                                    context.SaveChanges();
 
-                                dataBooks.ItemsSource = getBooks();
-                                setMutable();
-                                dataBooks.IsEnabled = true;
-                            }
-                            else
-                                MessageBox.Show("Mã sách không được trùng", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                    dataBooks.ItemsSource = getBooks();
+                                    setMutable();
+                                    dataBooks.IsEnabled = true;
+                                }
+                                else
+                                    MessageBox.Show("Mã sách không được trùng", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            
                         }
                         catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); kt = false; }
                     }
@@ -174,31 +181,34 @@ namespace BookStore.View
                     {
                         try
                         {
-                            _sach = context.SACH.Find(Convert.ToInt32(tbMaSach.Text));
+                            {
+                                _sach = context.SACH.Find(Convert.ToInt32(tbMaSach.Text));
+                                chenhlech = -_sach.SoLuongTon;
+                                _sach.TenSach = tbTenSach.Text;
+                                _sach.TacGia = tbTacGia.Text;
 
-                            _sach.TenSach = tbTenSach.Text;
-                            _sach.TacGia = tbTacGia.Text;
+                                _sach.THELOAI = cbTheLoai.SelectedValue as THELOAI;
+                                _sach.NHAXUATBAN = cbNhaXuatBan.SelectedValue as NHAXUATBAN;
 
-                            _sach.THELOAI = cbTheLoai.SelectedValue as THELOAI;
-                            _sach.NHAXUATBAN = cbNhaXuatBan.SelectedValue as NHAXUATBAN;
+                                _sach.GiaBan = Convert.ToInt32(tbGiaBan.Text);
+                                _sach.SoLuongTon = Convert.ToInt32(tbSoLuongTon.Text);
+                                chenhlech += _sach.SoLuongTon;
+                                context.SaveChanges();
 
-                            _sach.GiaBan = Convert.ToInt32(tbGiaBan.Text);
-                            _sach.SoLuongTon = Convert.ToInt32(tbSoLuongTon.Text);
+                                dataBooks.ItemsSource = getBooks();
 
-                            context.SaveChanges();
+                                MessageBox.Show("Sửa sách thành công", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-                            dataBooks.ItemsSource = getBooks();
-
-                            MessageBox.Show("Sửa sách thành công", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
-
-                            setMutable();
-                            dataBooks.IsEnabled = true;
+                                setMutable();
+                                dataBooks.IsEnabled = true;
+                            }
+                            
                         }
                         catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); kt = false; }
                     }
                 }
                 setMutable();
-                if (kt) { updateBaoCaoTon(_sach); }
+                if (kt) { updateBaoCaoTon(_sach, chenhlech); }
                 
             }
             else
@@ -245,7 +255,7 @@ namespace BookStore.View
             cbNhaXuatBan.ItemsSource = getNhaXuatBan();
             cbNhaXuatBan.DisplayMemberPath = "TenNhaXuatBan";
         }
-        private void updateBaoCaoTon(SACH sach)
+        private void updateBaoCaoTon(SACH sach, int chenhlech = 0)
         {
             BAOCAOTON _baocaoton = (from b in context.BAOCAOTON
                                     where b.MaSach.Equals(sach.MaSach)
@@ -265,7 +275,7 @@ namespace BookStore.View
             else
             {
                 _baocaoton.TonCuoi = sach.SoLuongTon;
-                _baocaoton.PhatSinh = _baocaoton.TonCuoi - _baocaoton.TonDau;
+                _baocaoton.PhatSinh += chenhlech;
                 context.SaveChanges();
             }
         }
