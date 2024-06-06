@@ -270,9 +270,15 @@ namespace BookStore.View
                                     _chitiet.SoLuongNhap = Convert.ToInt32(tbSoLuong.Text);
                                     _chitiet.DonGiaNhap = Convert.ToInt32(tbDonGia.Text);
                                     _chitiet.ThanhTien = _chitiet.SoLuongNhap * _chitiet.DonGiaNhap;
+                                    //update Bao Cao Ton
+                                    BAOCAOTON baoCaoTon = (from b in context.BAOCAOTON
+                                                           where b.MaSach.Equals(_chitiet.MaSach)
+                                                           select b).FirstOrDefault();
+                                    var sach = context.SACH.Find(_chitiet.MaSach);
+                                    baoCaoTon.TonCuoi = Convert.ToInt32(sach.SoLuongTon);
+                                    baoCaoTon.PhatSinh += Convert.ToInt32(_chitiet.SoLuongNhap);
 
                                     context.CT_PHIEUNHAPSACH.Add(_chitiet);
-                                    SACH sach = context.SACH.Find(_chitiet.MaSach);
                                     sach.SoLuongTon += _chitiet.SoLuongNhap;
                                     context.SaveChanges();
 
@@ -288,11 +294,20 @@ namespace BookStore.View
                                     if (InsertRecord == MessageBoxResult.Yes)
                                     {
                                         SACH sach = context.SACH.Find(_chitiet.MaSach);
-                                        sach.SoLuongTon -= _chitiet.SoLuongNhap;
+                                        int chenhlech = 0;
+                                        chenhlech -= _chitiet.SoLuongNhap;
                                         _chitiet.SoLuongNhap = Convert.ToInt32(tbSoLuong.Text);
                                         _chitiet.DonGiaNhap = Convert.ToInt32(tbDonGia.Text);
                                         _chitiet.ThanhTien = _chitiet.SoLuongNhap * _chitiet.DonGiaNhap;
-                                        sach.SoLuongTon += _chitiet.SoLuongNhap;
+                                        chenhlech += _chitiet.SoLuongNhap;
+                                        sach.SoLuongTon = chenhlech;
+                                        //update Bao Cao Ton
+                                        BAOCAOTON baoCaoTon = (from b in context.BAOCAOTON
+                                                               where b.MaSach.Equals(_chitiet.MaSach)
+                                                               select b).FirstOrDefault();
+                                        baoCaoTon.TonCuoi = Convert.ToInt32(sach.SoLuongTon);
+                                        baoCaoTon.PhatSinh += Convert.ToInt32(chenhlech);
+
                                         context.SaveChanges();
 
                                         var query = from b in context.CT_PHIEUNHAPSACH
@@ -349,6 +364,16 @@ namespace BookStore.View
                 ObservableCollection<CT_PHIEUNHAPSACH> data = new ObservableCollection<CT_PHIEUNHAPSACH>(query);
                 dataCT.ItemsSource = data;
             }
+        }
+        private void updateBaoCaoTon(CT_PHIEUNHAPSACH ct_phieu)
+        {
+            BAOCAOTON baoCaoTon = (from b in context.BAOCAOTON
+                                         where b.MaSach.Equals(ct_phieu.MaSach)
+                                         select b).FirstOrDefault();
+            var sach = context.SACH.Find(ct_phieu.MaSach);
+            baoCaoTon.TonCuoi = Convert.ToInt32(sach.SoLuongTon);
+            baoCaoTon.PhatSinh += Convert.ToInt32(ct_phieu.SoLuongNhap);
+            context.SaveChanges();
         }
     }
 }

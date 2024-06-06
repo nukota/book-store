@@ -85,6 +85,7 @@ namespace BookStore.View
                         context.PHIEUTHUTIEN.Add(_phieu);
                         context.SaveChanges();
                         updateTienNo(_customer.MaKhachHang);
+                        updateBaoCaoCongNo(_phieu);
                         dataCash.ItemsSource = getCash();
 
                         MessageBox.Show("Thêm phiếu thu thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -153,6 +154,15 @@ namespace BookStore.View
             }
             var khachhang = context.KHACHHANG.Find(makhachhang);
             khachhang.SoTienNo = tienNo;
+            context.SaveChanges();
+        }
+        private void updateBaoCaoCongNo(PHIEUTHUTIEN _phieu)
+        {
+            BAOCAOCONGNO baoCaoCongNo = (from b in context.BAOCAOCONGNO
+                                         where b.MaKhachHang.Equals(_phieu.MaKhachHang)
+                                         select b).FirstOrDefault();
+            var khachhang = context.KHACHHANG.Find(_phieu.MaKhachHang);
+            baoCaoCongNo.NoCuoi = Convert.ToInt32(khachhang.SoTienNo);
             context.SaveChanges();
         }
     }
