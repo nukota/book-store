@@ -145,7 +145,12 @@ namespace BookStore.View
                     {
                         try
                         {
-                            
+                            if (Convert.ToInt32(tbMaSach.Text) <= 0 || Convert.ToInt32(tbGiaBan.Text) <= 0 || Convert.ToInt32(tbSoLuongTon.Text) <= 0)
+                            {
+                            MessageBox.Show("Dữ liệu nhập không được phép bé hơn hoặc bằng 0!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); kt = false;
+                            }   
+                            else
+                            {
                                 var _find = Convert.ToInt32(tbMaSach.Text);
                                 if (context.SACH.Find(_find) == null)
                                 {
@@ -166,9 +171,8 @@ namespace BookStore.View
                                     dataBooks.ItemsSource = getBooks();
                                     setMutable();
                                     dataBooks.IsEnabled = true;
-                                }
-                                else
-                                    MessageBox.Show("Mã sách không được trùng", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                } else { MessageBox.Show("Mã sách không được trùng", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); kt = false; }
+                            }        
                             
                         }
                         catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); kt = false; }
