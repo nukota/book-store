@@ -375,5 +375,13 @@ namespace BookStore.View
             baoCaoTon.PhatSinh += Convert.ToInt32(ct_phieu.SoLuongNhap);
             context.SaveChanges();
         }
+
+        private void dataBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var _sach = dataBooks.SelectedItem as SACH;
+            tbDonGia.Text = (from b in context.SACH
+                             where b.MaSach.Equals(_sach.MaSach)
+                             select b.GiaBan).FirstOrDefault().ToString();
+        }
     }
 }

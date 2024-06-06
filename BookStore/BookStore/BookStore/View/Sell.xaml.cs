@@ -346,9 +346,9 @@ namespace BookStore.View
         private void _selectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var _sach = dataBooks.SelectedItem as SACH;
-            tbDonGia.Text = (from b in context.SACH
+            tbDonGia.Text = ((from b in context.SACH
                              where b.MaSach.Equals(_sach.MaSach)
-                             select b.GiaBan).FirstOrDefault().ToString();
+                             select b.GiaBan).FirstOrDefault()*1.05).ToString();
         }
         private void updateBaoCaoCongNo(HOADON hoadon)
         {
