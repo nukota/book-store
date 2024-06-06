@@ -103,24 +103,32 @@ namespace BookStore.View
                     {
                         try
                         {
-                            var _find = Convert.ToInt32(tbMaKH.Text);
-                            if (context.KHACHHANG.Find(_find) == null)
+                            if (Convert.ToInt32(tbSDT.Text) <= 0 || Convert.ToInt32(tbMaKH.Text) <= 0 || Convert.ToInt32(tbTienNo.Text) <= 0)
                             {
-                                _customer.MaKhachHang = Convert.ToInt32(tbMaKH.Text);
-                                _customer.SoTienNo = Convert.ToInt32(tbTienNo.Text);
-
-                                _customer.TenKhachHang = tbTenKH.Text;
-                                _customer.DiaChi = tbDiaChi.Text;
-                                _customer.SDT = tbSDT.Text;
-                                _customer.Email = tbEmail.Text;
-
-                                context.KHACHHANG.Add(_customer);
-                                context.SaveChanges();
-
-                                dataCustomers.ItemsSource = getCustomers();
+                                MessageBox.Show("Thông tin nhập không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                             }
                             else
-                                MessageBox.Show("Mã khách hàng không được trùng!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            {
+                                var _find = Convert.ToInt32(tbMaKH.Text);
+                                if (context.KHACHHANG.Find(_find) == null)
+                                {
+                                    _customer.MaKhachHang = Convert.ToInt32(tbMaKH.Text);
+                                    _customer.SoTienNo = Convert.ToInt32(tbTienNo.Text);
+
+                                    _customer.TenKhachHang = tbTenKH.Text;
+                                    _customer.DiaChi = tbDiaChi.Text;
+                                    _customer.SDT = Convert.ToInt32(tbSDT.Text).ToString();
+                                    _customer.Email = tbEmail.Text;
+
+                                    context.KHACHHANG.Add(_customer);
+                                    context.SaveChanges();
+
+                                    dataCustomers.ItemsSource = getCustomers();
+                                }
+                                else
+                                    MessageBox.Show("Mã khách hàng không được trùng!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            }
+                            
                         }
                         catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); }
                     }
@@ -132,17 +140,24 @@ namespace BookStore.View
                     {
                         try
                         {
-                            _customer = context.KHACHHANG.Find(Convert.ToInt32(tbMaKH.Text));
-                            _customer.SoTienNo = Convert.ToInt32(tbTienNo.Text);
+                            if (Convert.ToInt32(tbSDT.Text) <= 0 || Convert.ToInt32(tbMaKH.Text) <= 0 || Convert.ToInt32(tbTienNo.Text) < 0)
+                            {
+                                MessageBox.Show("Thông tin nhập không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            } else
+                            {
+                                _customer = context.KHACHHANG.Find(Convert.ToInt32(tbMaKH.Text));
+                                _customer.SoTienNo = Convert.ToInt32(tbTienNo.Text);
 
-                            _customer.TenKhachHang = tbTenKH.Text;
-                            _customer.DiaChi = tbDiaChi.Text;
-                            _customer.SDT = tbSDT.Text;
-                            _customer.Email = tbEmail.Text;
+                                _customer.TenKhachHang = tbTenKH.Text;
+                                _customer.DiaChi = tbDiaChi.Text;
+                                _customer.SDT = Convert.ToInt32(tbSDT.Text).ToString();
+                                _customer.Email = tbEmail.Text;
 
-                            context.SaveChanges();
+                                context.SaveChanges();
 
-                            dataCustomers.ItemsSource = getCustomers();
+                                dataCustomers.ItemsSource = getCustomers();
+                            }
+                            
                         }
                         catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); }
                     }

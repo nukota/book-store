@@ -64,41 +64,47 @@ namespace BookStore.View
             {
                 if (isNull())
                     MessageBox.Show("Không được để trống!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                else if (Convert.ToInt32(tbTienThu.Text) > Convert.ToInt32(tbTienNo.Text))
-                    MessageBox.Show("Tiền thu không được lớn hơn tiền nợ!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                else
+                else try 
                 {
-                    PHIEUTHUTIEN _phieu = new PHIEUTHUTIEN();
-                    KHACHHANG _customer = cbKhachHang.SelectedItem as KHACHHANG;
-                    KHACHHANG _find = context.KHACHHANG.Find(_customer.MaKhachHang);
-                    if (context.PHIEUTHUTIEN.Find(Convert.ToInt32(tbMaPT.Text)) == null)
-                    {
-                        _phieu.SoPT = Convert.ToInt32(tbMaPT.Text);
-                        _phieu.NgayLap = DateTime.Now;
-                        _phieu.SoTienThu = Convert.ToInt32(tbTienThu.Text);
-                        _find.SoTienNo -= Convert.ToInt32(tbTienThu.Text);
-                        context.SaveChanges();
+                    if (Convert.ToInt32(tbTienThu.Text) > Convert.ToInt32(tbTienNo.Text))
+                        MessageBox.Show("Tiền thu không được lớn hơn tiền nợ!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    else if (Convert.ToInt32(tbTienThu.Text) <= 0)
+                            MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    else 
+                        {
+                        PHIEUTHUTIEN _phieu = new PHIEUTHUTIEN();
+                        KHACHHANG _customer = cbKhachHang.SelectedItem as KHACHHANG;
+                        KHACHHANG _find = context.KHACHHANG.Find(_customer.MaKhachHang);
+                        if (context.PHIEUTHUTIEN.Find(Convert.ToInt32(tbMaPT.Text)) == null)
+                        {
+                            _phieu.SoPT = Convert.ToInt32(tbMaPT.Text);
+                            _phieu.NgayLap = DateTime.Now;
+                            _phieu.SoTienThu = Convert.ToInt32(tbTienThu.Text);
+                            _find.SoTienNo -= Convert.ToInt32(tbTienThu.Text);
+                            context.SaveChanges();
 
-                        _phieu.MaKhachHang = _find.MaKhachHang;
-                        _phieu.KHACHHANG = _find;
+                            _phieu.MaKhachHang = _find.MaKhachHang;
+                            _phieu.KHACHHANG = _find;
+    
+                            context.PHIEUTHUTIEN.Add(_phieu);
+                            context.SaveChanges();
+                            updateTienNo(_customer.MaKhachHang);
+                            updateBaoCaoCongNo(_phieu);
+                            dataCash.ItemsSource = getCash();
 
-                        context.PHIEUTHUTIEN.Add(_phieu);
-                        context.SaveChanges();
-                        updateTienNo(_customer.MaKhachHang);
-                        updateBaoCaoCongNo(_phieu);
-                        dataCash.ItemsSource = getCash();
+                            MessageBox.Show("Thêm phiếu thu thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                        MessageBox.Show("Thêm phiếu thu thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                        tbMaPT.Clear();
-                        tbTienThu.Clear();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Mã phiếu thu không được trùng!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        tbMaPT.Clear();
+                            tbMaPT.Clear();
+                            tbTienThu.Clear();
+                        }
+                        else
+                        {   
+                            MessageBox.Show("Mã phiếu thu không được trùng!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            tbMaPT.Clear();
+                        }
                     }
                 }
+                    catch { MessageBox.Show("Thông tin không hợp lệ!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning); }
             }
             else
                 MessageBox.Show("Vui lòng chọn khách hàng cần thu tiền!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
