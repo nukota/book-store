@@ -1,33 +1,62 @@
-# SE104-DoAn
 Bookstore Management
-# SE104.O22 - Group 10
 ## Bookstore Management - NAME STORE
 
-## Members:
-| Number | Name                        | ID     | Missions | Rate |
-| --- |----------------------------|----------|------------|----------|
-| 1 | [Trần Nguyễn Nhựt Tâm]() | 21520441 | Leader, Design UI | 0% |
-| 2 | [Nguyễn Công Thành]()    | 22521351 | Design UI | 0% |
-| 3 | [Lê Vũ Ca]()              | 22520140 | Design UI | 0% |
-| 4 | [Trần Trung Kiên]()          | 21522250 |  Design UI | 0% |
-| 4 | [Nguyễn Hoàng Duy]()          | 22520329 |  Design UI | 0% |
+## 📘 Project Overview
 
-## Project overview
 <p align="center">
-   Bookstore Management App
+  <img src="screenshots/banner.png" alt="Bookstore Management App" width="600"/>
 </p>
 
+This is a **desktop application** developed in **C# using WPF** for managing a bookstore's daily operations. The system supports core business processes such as book inventory tracking, customer and sales management, invoicing, and reporting.
 
-## UML
+---
 
+## 📌 Features
 
+### 🔐 General User Functions
+- **Login, Sign Up, and Change Password**: Secure user authentication with role-based access control (staff/admin).
 
-## Functions in this project
-#### Overall functions
-> - Login, Sign up, Change password
-#### Staff functions
-> - Manage products
+---
 
+### 🧑‍💼 Staff Functions
+
+#### 📚 Book and Inventory Management
+- Add, update, delete, and search for book titles.
+- Track available stock and restock levels.
+- Manage categories, authors, and publishers.
+
+![Book and Inventory UI](image_2.png)
+
+---
+
+#### 👥 Customer and Sales Management
+- Add new customers, update details, and search by name or phone number.
+- Record customer purchases and maintain sales history.
+
+---
+
+#### 💳 Debt and Payment Tracking
+- Monitor outstanding customer balances.
+- Record payments and generate transaction histories.
+- Set limits for credit/debt per customer.
+
+---
+
+#### 🧾 Invoice Management
+- Create and print invoices for each sale.
+- Auto-calculate total cost, discounts, and taxes.
+- Assign invoices to customers for debt tracking.
+
+![Invoice UI](image_1.png)
+
+---
+
+#### 📊 Reports and Analytics
+- Generate sales reports.
+- Summary statistics.
+- Export.
+
+---
 
 
 
@@ -39,3 +68,6 @@ Bookstore Management
 
 
 ## How to run this project
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/nukota/book-store
